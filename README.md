@@ -1,0 +1,12 @@
+### WEBCHAT /w KAFKA
+
+
+ 
+```
+JAVA 11
+SPRING BOOT 2.7.1
+GRADLE 7.6
+KAFKA 2.13
+```
+
+* KAFKA 및 ZOOKEEPER 설치 및 CLI 실행 확인 

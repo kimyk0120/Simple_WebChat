@@ -1,6 +1,5 @@
 ### WEBCHAT /w KAFKA
 
-
  
 ```
 JAVA 11
@@ -25,6 +24,12 @@ KAFKA 2.13
 * github action properties 설정
 
 ---
+
+### ERROR HANDLING
+
+
+* error: invalid source release: 17
+  - [PROJECT] build.gradle > sourceCompatibility = 11
 
 
 

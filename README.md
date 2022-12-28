@@ -1,4 +1,4 @@
-### WEBCHAT /w KAFKA
+### WEBCHAT /w KAFKA 
 
  
 ```
@@ -6,6 +6,7 @@ JAVA 11
 SPRING BOOT 2.7.1
 GRADLE 7.6
 KAFKA 2.13
+DB (MongoDB) - Not yet
 ```
 
 ---
@@ -15,13 +16,22 @@ KAFKA 2.13
 * 프로젝트 init
   - VCS 설정 (git)
 
+  
 ---
 
 ### TODO
 
+* CI/CD 설정
+  - github action
+  - build > dockerize > deploy?
 * KAFKA 및 ZOOKEEPER 설치 및 CLI 실행 확인
+* * websocket, STOMP 검토
+* KAFKA TOPIC, PARTITION 검토 
+  - room 단위는 어떻게 처리할까?
 * github action workflow 작성
 * github action properties 설정
+  - properties 파일을 비공개 처리하면서 github action에서 설정할 수 있을까? 
+
 
 ---
 
@@ -30,6 +40,7 @@ KAFKA 2.13
 
 * error: invalid source release: 17
   - [PROJECT] build.gradle > sourceCompatibility = 11
+  
 
 
 

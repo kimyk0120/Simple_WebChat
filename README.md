@@ -15,16 +15,17 @@ DB (MongoDB) - Not yet
 
 * 프로젝트 init
   - VCS 설정 (git)
-
+* KAFKA 및 ZOOKEEPER 설치 및 CLI 실행 확인
+  - 서버 JAVA OPENJDK 11 설치 및 설정
+  - zookeeper, kafka 설치 및 시스템데몬 등록
+  - topic 생성 및 확인
+  - cli producer, consumer 실행 및 확인
   
 ---
 
 ### TODO
 
-* KAFKA 및 ZOOKEEPER 설치 및 CLI 실행 확인
-  - 서버 JAVA OPENJDK 11 설치 및 설정
-  - zookeeper, kafka 설치 및 시스템데몬 등록
-  - topic 생성 및 확인
+
 
 * CI/CD 설정
   - github action

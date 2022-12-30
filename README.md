@@ -7,7 +7,7 @@ SPRING BOOT 2.7.1
 GRADLE 7.6
 KAFKA 2.13-3.2.0
 DB (MongoDB) - Not yet
-Tailwind CSS
+Bootstrap
 ```
 
 ---
@@ -27,13 +27,11 @@ Tailwind CSS
   - static resource > index.html
   
 * css framework 선정
-  - Tailwind CSS
+  - Bootstrap (o)
   
 ---
 
 ### TODO
-
-
 
 
 * CI/CD 설정

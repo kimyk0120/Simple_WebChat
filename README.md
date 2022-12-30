@@ -7,6 +7,7 @@ SPRING BOOT 2.7.1
 GRADLE 7.6
 KAFKA 2.13-3.2.0
 DB (MongoDB) - Not yet
+Tailwind CSS
 ```
 
 ---
@@ -22,14 +23,19 @@ DB (MongoDB) - Not yet
   - topic 생성 및 확인
   - cli producer, consumer 실행 및 확인
 
-
+* PROJECT WELCOME PAGE 설정
+  - static resource > index.html
+  
+* css framework 선정
+  - Tailwind CSS
   
 ---
 
 ### TODO
 
 
-* PROJECT WELCOME PAGE 설정  
+
+
 * CI/CD 설정
   - github action
   - build > dockerize > deploy?

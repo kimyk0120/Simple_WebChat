@@ -7,7 +7,7 @@ SPRING BOOT 2.7.1
 GRADLE 7.6
 KAFKA 2.13-3.2.0
 DB (MongoDB) - Not yet
-Bootstrap
+Bootstrap 5.2.2
 ```
 
 ---
@@ -28,11 +28,16 @@ Bootstrap
   
 * css framework 선정
   - Bootstrap (o)
+
+* Template Engine Thymeleaf Dependency 추가
   
 ---
 
 ### TODO
 
+
+* TEST Controller 생성
+ 
 
 * CI/CD 설정
   - GitHub action

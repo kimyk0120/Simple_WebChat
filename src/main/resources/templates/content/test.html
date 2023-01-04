@@ -1,22 +1,15 @@
-<!DOCTYPE HTML>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout/default_layout}">
-
-<th:block layout:fragment="head">
-    <title>Spring Boot</title>
-
-    <!--/* css */-->
-<!--    <link th:href="@{/css/common.css}" rel="stylesheet" />-->
-</th:block>
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Thymeleaf Test</title>
+    <meta charset="UTF-8">
+</head>
 <body>
-<!--        <th:block layout:fragment="header" th:include="@{/fragments/header}"></th:block>-->
+<th:block th:each="data:${datas}">
+    <h1 th:text="${data}"></h1>
+</th:block>
 
-<div layout:fragment="content" class="content">
-    <h2>This is Content</h2>
-</div>
-
-<!--        <th:block layout:fragment="footer" th:include="@{/fragments/footer}"></th:block>-->
+<span th:text="${info.name}"></span>
+<span th:text="${info.age}"></span>
 </body>
 </html>

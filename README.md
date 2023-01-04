@@ -37,7 +37,7 @@ Bootstrap 5.2.2
   - GitHub action
   - build > dockerize > deploy?
 
-* JAVA-KAFKA 설정 및 연동
+* JAVA-KAFKA 설정 및 연동 테스트
   - producer
   - consumer
   

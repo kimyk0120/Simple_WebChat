@@ -9,7 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: executing remote ssh commands using key
-        uses: kimyk0120/Toyp_WebChat@master
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}

@@ -2,9 +2,6 @@ name: remote ssh command for deploy
 on:
   push:
     branches: [master]
-    paths-ignore:
-      - 'README.md'
-      - 'docs/**'
 
 jobs:
   build:
@@ -18,7 +15,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
-      - run: cd /home/opc | sh deploy.sh
+        run: cd /home/opc | sh deploy.sh
 
 
 
@@ -32,4 +29,5 @@ jobs:
 #    - name: Build with Gradle
 #      uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
 #      with:
-#        arguments: build
+description:
+runs:#        arguments: build

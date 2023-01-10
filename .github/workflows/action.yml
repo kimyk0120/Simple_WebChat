@@ -15,7 +15,9 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
-          script: cd /home/opc | sh deploy.sh
+          script: |
+            cd /home/opc 
+            sh deploy.sh
 
 
 #    steps:

@@ -8,13 +8,14 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-      - name: executing remote ssh commands using key
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.KEY }}
-          port: ${{ secrets.PORT }}
-        run: cd /home/opc | sh deploy.sh
+    - name: executing remote ssh commands using key
+      uses: kimyk0120/Toyp_WebChat@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.KEY }}
+        port: ${{ secrets.PORT }}
+      run: cd /home/opc | sh deploy.sh
 
 
 

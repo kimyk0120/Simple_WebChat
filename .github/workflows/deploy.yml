@@ -21,19 +21,18 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
-#          port: ${{ secrets.PORT }}
           source: "./build/libs/*.jar"
           target: "/home/opc/"
           strip_components: 2
 
-#      - name: Transfer Deploy Script use SCP
-#        uses: appleboy/scp-action@master
-#        with:
-#          username: ubuntu
-#          host: ${{ secrets.HOST }}
-#          key: ${{ secrets.PRIVATE_KEY }}
-#          source: "deploy.sh"
-#          target: "/home/ubuntu/deploy"
+      - name: Transfer Deploy Script use SCP
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          source: "deploy.sh"
+          target: "/home/opc/"
 
 #      - name: Execute Server Init Script
 #        uses: appleboy/ssh-action@master

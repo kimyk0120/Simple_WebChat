@@ -35,8 +35,8 @@ Bootstrap 5.2.2
 
 * CI/CD 설정
   - GitHub action
-  - 1. master push > excute remote deploy.sh > build > deploy  
-  - 2. build jar > ....
+    +  build yml 작성
+    +  deploy yml 작성
 
 * JAVA-KAFKA 설정 및 연동 테스트
   - producer

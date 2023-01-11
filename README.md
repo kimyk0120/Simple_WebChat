@@ -23,15 +23,14 @@ Bootstrap 5.2.2
 * Template Engine Thymeleaf Dependency 추가
 * TEST Controller 생성
 * fire wall : iptables -I INPUT 1 -p tcp --dport 8080 -j ACCEPT
+* CI/CD 설정
+  - GitHub action
+    +  deploy.yml, deploy.sh 작성 및 테스트 완료
 
 ---
 
 ### TODO
 
-
-* CI/CD 설정
-  - GitHub action 
-    +  deploy yml 작성 (jar서버전송까지 완료)
 
 * KAFKA 및 ZOOKEEPER 설치 및 CLI 실행 확인 (port:9092)
   - 서버 JAVA OPENJDK 11 설치 및 설정

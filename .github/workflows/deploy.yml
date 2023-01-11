@@ -12,83 +12,34 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
       ## 빌드
-      - name: Set up JDK 11
-        uses: actions/setup-java@v3
-        with:
-          java-version: '11'
-          distribution: 'temurin'
-      - name: Setup Gradle
-        uses: gradle/gradle-build-action@v2
       - name: Execute Gradle build
         run: ./gradlew build
-      ## 빌드 아티팩트 확인
-      - name: Show structure of artifact files
-        run: ls -ahl ./build/libs/*.jar
-      ## 빌드 아티팩트 업로드
-      - name: Upload build artifact for job
-        uses: actions/upload-artifact@v3
-        with:
-          ## 업로드 키 값 (임의지정)
-          name: project_artifact
-          ## Maven의 경우
-          path: "./build/libs/*.jar"
 
-  ## 2. 배포
-  distribute:
-    needs: [ build ]
-    runs-on: ubuntu-latest
-    steps:
-      ## 아티팩트 전송을 위한 임시 공간
-      - name: Create distribute
-        run: mkdir ~/dist
-      ## 빌드 한 아티팩트 다운로드
-      - name: Download build artifact for job
-        uses: actions/download-artifact@v3
-        with:
-          name: project_artifact
-          path: dist
-      ## 아티팩트 확인
-      - name: Show structure of downloaded files
-        run: |
-          ls -alh dist
-      ## 서버에 아티팩트 전송
-      - name: Transfer artifact
+      - name: Deploy Prod use SCP
         uses: appleboy/scp-action@master
         with:
-          username: ${{ secrets.USERNAME }}
           host: ${{ secrets.HOST }}
-          port: ${{ secrets.PORT }}
-          key: ${{ secrets.KEY }}
-          rm: true
-          source: "dist/*.jar"
-          target: ${{ secrets.DIST_PATH }}
-          ## 작업에 사용했던 dist 디렉토리를 경로상에서 제거
-          strip_components: 1
-      ## 전송된 아티팩트 확인
-      - name: Show structure of transfer files
-        uses: appleboy/ssh-action@master
-        with:
           username: ${{ secrets.USERNAME }}
-          host: ${{ secrets.HOST }}
-          port: ${{ secrets.PORT }}
           key: ${{ secrets.KEY }}
-          script: |
-            cd ${{ secrets.DIST_PATH }}
-            ls -alh
-  ## 3. 서비스 재기동
-  service_restart:
-    ## 앞 작업이 선행되고 성공해야 함
-    needs: [ build, distribute ]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Call service restart
-        uses: appleboy/ssh-action@master
-        with:
-          username: ${{ secrets.USERNAME }}
-          host: ${{ secrets.HOST }}
-          port: ${{ secrets.PORT }}
-          key: ${{ secrets.KEY }}
-          script: |
-            cd ${{ secrets.DIST_PATH }}
-            echo "서비스 종료 스크립트. pgrep 부분 개선 및 루프.."
-            echo "서비스 시작 스크립트"
+#          port: ${{ secrets.PORT }}
+          source: "./build/libs/*.jar"
+          target: "/home/opc/"
+          strip_components: 2
+
+#      - name: Transfer Deploy Script use SCP
+#        uses: appleboy/scp-action@master
+#        with:
+#          username: ubuntu
+#          host: ${{ secrets.HOST }}
+#          key: ${{ secrets.PRIVATE_KEY }}
+#          source: "deploy.sh"
+#          target: "/home/ubuntu/deploy"
+
+#      - name: Execute Server Init Script
+#        uses: appleboy/ssh-action@master
+#        with:
+#          username: ubuntu
+#          host: ${{ secrets.HOST }}
+#          key: ${{ secrets.PRIVATE_KEY }}
+#          script_stop: true
+#          script: chmod +x /home/ubuntu/deploy/deploy.sh && sh /home/ubuntu/deploy/deploy.sh

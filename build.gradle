@@ -4,6 +4,11 @@ plugins {
     id 'io.spring.dependency-management' version '1.1.0'
 }
 
+// build 시에 plane jar 생성 안함
+jar {
+    enabled = false
+}
+
 group = 'com.ToypWebChat'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'

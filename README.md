@@ -27,15 +27,15 @@ Bootstrap 5.2.2
   - Bootstrap (o)
 * Template Engine Thymeleaf Dependency 추가
 * TEST Controller 생성
-  
+* fire wall : iptables -I INPUT 1 -p tcp --dport 8080 -j ACCEPT
+
 ---
 
 ### TODO
 
 
 * CI/CD 설정
-  - GitHub action
-    +  build yml 작성
+  - GitHub action 
     +  deploy yml 작성
 
 * JAVA-KAFKA 설정 및 연동 테스트

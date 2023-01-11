@@ -36,7 +36,7 @@ Bootstrap 5.2.2
 
 * CI/CD 설정
   - GitHub action 
-    +  deploy yml 작성
+    +  deploy yml 작성 (jar서버전송까지 완료)
 
 * JAVA-KAFKA 설정 및 연동 테스트
   - producer

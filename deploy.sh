@@ -13,8 +13,8 @@
 
  # shellcheck disable=SC2164
  cd /home/opc/
- rm -R ./nohup
- mkdir ./nohup
+# rm -R ./nohup
+# mkdir ./nohup
  # shellcheck disable=SC2010
  JAR_NAME=$(ls | grep 'Toyp_WebChat' | tail -n 1)
  echo "> JAR Name: $JAR_NAME"

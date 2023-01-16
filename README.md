@@ -39,8 +39,6 @@ Bootstrap 5.2.2
 ### TODO
 
 
-
-
 * JAVA-KAFKA 설정 및 연동 테스트
   - producer
   - consumer

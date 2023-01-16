@@ -45,9 +45,6 @@ Bootstrap 5.2.2
 * websocket, STOMP 검토
 * KAFKA TOPIC, PARTITION 검토 
   - room 단위는 어떻게 처리할까?
-* GitHub action workflow 작성
-* GitHub action properties 설정
-  - properties 파일을 비공개 처리하면서 github action에서 설정할 수 있을까?
 * DB 설계
 
 

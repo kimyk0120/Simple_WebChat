@@ -33,16 +33,14 @@ Bootstrap 5.2.2
   - topic 생성 및 확인
   - cli producer, consumer 실행 및 확인
 
+* JAVA-KAFKA 설정 및 연동 테스트
+  - producer
+  - consumer
 
 ---
 
 ### TODO
 
-
-* JAVA-KAFKA 설정 및 연동 테스트
-  - producer
-  - consumer
-  
   
 * websocket, STOMP 검토
 * KAFKA TOPIC, PARTITION 검토 

@@ -12,14 +12,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 class ToypWebChatApplicationTests {
 
 
-    @Value("${test}")
-    private String testString;
 
-    @Test
-    void test() throws Exception{
-
-        log.info("test");
-        log.info(testString);
-    }
 
 }

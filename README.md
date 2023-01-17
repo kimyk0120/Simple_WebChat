@@ -42,7 +42,8 @@ Bootstrap 5.2.2
 ### TODO
 
 
-
+* ApplicationContext - ApplicationEvent 검토 
+* 로그인 화면 구현 
 * websocket, STOMP 검토
 * KAFKA TOPIC, PARTITION 검토 
   - room 단위는 어떻게 처리할까?
@@ -63,6 +64,7 @@ Bootstrap 5.2.2
 ### REFERENCE & TIPS
 
 * fire wall : iptables -I INPUT 1 -p tcp --dport 8080 -j ACCEPT
-
+* https://mdbootstrap.com/docs/standard/getting-started/installation/ 
+* https://getbootstrap.kr/
 
 

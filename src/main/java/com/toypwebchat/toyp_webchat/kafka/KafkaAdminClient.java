@@ -35,7 +35,7 @@ public class KafkaAdminClient {
         }
     }
 
-    public void close() {
+    public static void close() {
         if (client != null) {
             client.close();
             client = null;
@@ -50,14 +50,14 @@ public class KafkaAdminClient {
     }
 
     public static void deleteTopics(String topicName) {
-        client.deleteTopics(new ArrayList<String>() {{
-            add(topicName);  // listener 에 등록되어있으면 삭제 안됨
+        client.deleteTopics(new ArrayList<>() {{
+            add(topicName);
         }});
     }
 
 
     public static void getTopics() throws ExecutionException, InterruptedException {
-        client.listTopics().names().get().forEach(System.out::println);
+        client.listTopics().names().get().forEach(log::info);
     }
 
 }

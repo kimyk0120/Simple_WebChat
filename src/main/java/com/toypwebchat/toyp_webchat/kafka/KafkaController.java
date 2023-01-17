@@ -13,11 +13,8 @@ public class KafkaController {
 
     private final KafkaProducer producer;
 
-    private final KafkaAdminClient kafkaAdminClient;
-
-    public KafkaController(KafkaProducer producer, KafkaAdminClient kafkaAdminClient) {
+    public KafkaController(KafkaProducer producer) {
         this.producer = producer;
-        this.kafkaAdminClient = kafkaAdminClient;
     }
 
 
@@ -33,18 +30,25 @@ public class KafkaController {
     @GetMapping(value = "/create-topics")
     public String createTopic() {
         KafkaAdminClient.createTopics("test3");
-        return "success";
+        return "success createTopic";
     }
 
     @GetMapping(value = "/delete-topics")
     public String deleteTopic() {
         KafkaAdminClient.deleteTopics("test3");
-        return "success";
+        return "success deleteTopic";
     }
 
     @GetMapping(value = "/get-topics")
     public String getTopic() throws ExecutionException, InterruptedException {
         KafkaAdminClient.getTopics();
-        return "success";
+        return "success getTopic";
     }
+
+    @GetMapping(value = "/adminclient/close")
+    public String close() {
+        KafkaAdminClient.close();
+        return "success close";
+    }
+
 }

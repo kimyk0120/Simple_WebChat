@@ -19,7 +19,7 @@ html, body {
     background-color: #ffffff;
 }
 .input-form-box {
-    border:  solid #ff0000;
+    border: 0 solid #ff0000;
     display: flex;
     margin-bottom: 5px;
 }

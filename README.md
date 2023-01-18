@@ -35,15 +35,14 @@ Bootstrap 5.2.2
   - cli producer, consumer 실행 및 확인
 * JAVA-KAFKA 설정 및 연동 테스트
   - producer, consumer, topic
-   
+* 로그인 화면 UI 구현
 
 ---
 
 ### TODO
 
 
-* ApplicationContext - ApplicationEvent 검토 
-* 로그인 화면 구현 
+* ApplicationContext - ApplicationEvent 검토  
 * websocket, STOMP 검토
 * KAFKA TOPIC, PARTITION 검토 
   - room 단위는 어떻게 처리할까?

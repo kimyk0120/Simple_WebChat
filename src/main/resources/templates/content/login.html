@@ -6,49 +6,35 @@
     <title>Login</title>
     <link rel="shortcut icon" href="#">
     <link rel="stylesheet" href="/MDB5-STANDARD-UI-KIT-Free-6.1.0/css/mdb.min.css">
+    <link rel="stylesheet" href="/css/login.css">
 </head>
 
-<body>
-<div class="container">
-<!--    <div class="position-relative">-->
-<!--        <div class="position-absolute top-50 start-50">test</div>-->
-<!--    </div>-->
-</div>
+<body class="text-center">
 
+    <!--  html 전체 영역을 지정하는 container -->
+    <div id="container">
+        <!--  login 폼 영역을 : loginBox -->
+        <div id="loginBox">
 
+            <!-- 로그인 페이지 타이틀 -->
+            <div id="loginBoxTitle">WebChat</div>
 
-<!--        <form class="align-items-center h-100">-->
-<!--            &lt;!&ndash; Email input &ndash;&gt;-->
-<!--            <div class="form-outline mb-4">-->
-<!--                <input type="text" id="form2Example1" class="form-control"/>-->
-<!--                <label class="form-label" for="form2Example1">Email address</label>-->
-<!--            </div>-->
+            <div id="inputBox">
+                <div class="input-form-box">
+                    <span>NickName</span>
+                    <label class="ps-3">
+                        <input type="text" name="uid" class="form-control">
+                    </label>
+                </div>
+    <!--            <div class="input-form-box"><span>비밀번호 </span><input type="password" name="upw" class="form-control"></div>-->
+                <div class="button-login-box" >
+<!--                    <button type="button" class="btn btn-primary btn-lg" style="width:100%">Login</button>-->
+                    <a role="button" class="btn btn-primary btn-lg w-100 p-2">Login</a>
+                </div>
+            </div>
 
-
-<!--            &lt;!&ndash; Submit button &ndash;&gt;-->
-<!--            <button type="button" class="btn btn-primary btn-block mb-4">Sign in</button>-->
-
-<!--            &lt;!&ndash; Register buttons &ndash;&gt;-->
-<!--            <div class="text-center">-->
-<!--                <p>Not a member? <a href="#!">Register</a></p>-->
-<!--                <p>or sign up with:</p>-->
-<!--                <button type="button" class="btn btn-link btn-floating mx-1">-->
-<!--                    <i class="fab fa-facebook-f"></i>-->
-<!--                </button>-->
-
-<!--                <button type="button" class="btn btn-link btn-floating mx-1">-->
-<!--                    <i class="fab fa-google"></i>-->
-<!--                </button>-->
-
-<!--                <button type="button" class="btn btn-link btn-floating mx-1">-->
-<!--                    <i class="fab fa-twitter"></i>-->
-<!--                </button>-->
-
-<!--                <button type="button" class="btn btn-link btn-floating mx-1">-->
-<!--                    <i class="fab fa-github"></i>-->
-<!--                </button>-->
-<!--            </div>-->
-<!--        </form>-->
+        </div>
+    </div>
 
 <script src="/MDB5-STANDARD-UI-KIT-Free-6.1.0/js/mdb.min.js"></script>
 </body>

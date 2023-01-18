@@ -7,6 +7,7 @@
     <link rel="shortcut icon" href="#">
     <link rel="stylesheet" href="/MDB5-STANDARD-UI-KIT-Free-6.1.0/css/mdb.min.css">
     <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/toastify.css">
 </head>
 
 <body class="text-center">
@@ -21,15 +22,12 @@
 
             <div id="inputBox">
                 <div class="input-form-box">
-                    <span>ChatName</span>
-                    <label class="ps-3">
-                        <input type="text" name="uid" class="form-control">
+                    <label class="w-100">
+                        <input type="text" name="uid" class="form-control" placeholder="Username" id="userName" />
                     </label>
                 </div>
-    <!--            <div class="input-form-box"><span>비밀번호 </span><input type="password" name="upw" class="form-control"></div>-->
                 <div class="button-login-box" >
-<!--                    <button type="button" class="btn btn-primary btn-lg" style="width:100%">Login</button>-->
-                    <a role="button" class="btn btn-primary btn-lg w-100 p-2">Login</a>
+                    <a role="button" class="btn btn-primary btn-lg w-100 p-2" >Login</a>
                 </div>
             </div>
 
@@ -37,6 +35,39 @@
     </div>
 
 <script src="/MDB5-STANDARD-UI-KIT-Free-6.1.0/js/mdb.min.js"></script>
+<script src="/js/toastify.js"></script>
+<script>
+
+    const alertObj = Toastify({
+        text: "Please enter your username",
+        duration: 1000,
+        newWindow: true,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "left", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+            background: "linear-gradient(to right, #42a5ef, #3d50c9)",
+        },
+        onClick: function(){ // Callback after click
+            alertObj.hideToast();
+        }
+    });
+
+    const username =  document.getElementById("userName");
+    const loginBtn = document.querySelector(".button-login-box");
+
+    loginBtn.addEventListener("click", () => {
+        if(username.value === ""){
+            alertObj.showToast();
+        }else{
+            console.log(username.value);
+            // location.href = "/chat";
+        }
+    });
+
+
+</script>
 </body>
 </html>
 

@@ -12,7 +12,6 @@ public class LoginController {
 
     @GetMapping("/login")
     public String login(HttpServletRequest request) {
-        log.info("login");
         return "content/login";
     }
 }

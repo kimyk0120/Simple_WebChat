@@ -1,13 +1,14 @@
 
 
-// toast msg function
+// toast msg function, styles
 // requirement : toastify
 // styleNm : info, error, warn
+const styles = {
+    "info": {background: "linear-gradient(to right, #42a5ef, #3d50c9)",},
+    "error": {background: "linear-gradient(to right, #f55d5d, #ef6123)",},
+    "warn": {background: "linear-gradient(to right, #f3a30f, #f38f1c)",}
+};
 function showToast(message, styleNm) {
-
-    const infoToastStyle  = {background: "linear-gradient(to right, #42a5ef, #3d50c9)",}
-    const errorToastStyle = {background: "linear-gradient(to right, #f55d5d, #ef6123)",}
-    const warnToastStyle = {background: "linear-gradient(to right, #f3a30f, #f38f1c)",}
 
     const toastObj = Toastify({
         duration: 1000,
@@ -21,16 +22,9 @@ function showToast(message, styleNm) {
         },
         onClick: function(){}
     });
+
     toastObj.options.text = message;
-
-    if (styleNm === "info") {
-        toastObj.options.style = infoToastStyle;
-    } else if (styleNm === "error") {
-        toastObj.options.style = errorToastStyle;
-    } else if (styleNm === "warn") {
-        toastObj.options.style = warnToastStyle;
-    }
-
+    toastObj.options.style = styles[styleNm];
     toastObj.showToast();
 }
 

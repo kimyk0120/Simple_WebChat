@@ -56,7 +56,8 @@ Bootstrap 5.2.2
 
 * error: invalid source release: 17
   - [PROJECT] build.gradle > sourceCompatibility = 11
-  
+* layout:decorate="~{layout/default_layout} 작동안함
+  - [PROJECT] build.gradle > implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect' 추가
 
 ---
 

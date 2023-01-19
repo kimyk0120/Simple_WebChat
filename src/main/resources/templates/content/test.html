@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Thymeleaf Test</title>
-    <meta charset="UTF-8">
-</head>
-<body>
-<th:block th:each="data:${datas}">
-    <h1 th:text="${data}"></h1>
+<html  xmlns:="http://www.w3.org/1999/xhtml"
+       xmlns:th="http://www.thymeleaf.org"
+       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+       layout:decorate="~{layout/default_layout}">
+
+<th:block layout:fragment="content">
+    <!-- Begin Page Content -->
+    <div class="container-fluid">
+        <h1>레이아웃을 사용해 페이지 구성하기!</h1>
+    </div>
 </th:block>
 
-<span th:text="${info.name}"></span>
-<span th:text="${info.age}"></span>
-</body>
+
 </html>

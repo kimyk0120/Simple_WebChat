@@ -1,14 +1,7 @@
 <!DOCTYPE HTML>
 
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
-
-<head>
-    <title>Login</title>
-    <link rel="shortcut icon" href="#">
-    <link rel="stylesheet" href="/libs/MDB5-STANDARD-UI-KIT-Free-6.1.0/css/mdb.min.css">
-    <link rel="stylesheet" href="/css/login.css">
-    <link rel="stylesheet" href="/css/toastify.css">
-</head>
+<th:block th:include="layout/fragments/header"></th:block>
 
 <body class="text-center">
 
@@ -34,10 +27,8 @@
         </div>
     </div>
 
-<script src="/libs/MDB5-STANDARD-UI-KIT-Free-6.1.0/js/mdb.min.js"></script>
-<script src="/js/toastify.js"></script>
-<script src="/libs/axios/dist/axios.js"></script>
-<script src="/js/utils.js"></script>
+<th:block th:include="layout/fragments/scripts"></th:block>
+
 <script>
 
     const username =  document.getElementById("userName");
@@ -60,6 +51,7 @@
             axios.post(location.href+'/user', reqObj)
             .then(function (response) {
                 console.log(response);
+
             })
             .catch(function (error) {
                 showToast("Login failed.", "error");
@@ -68,9 +60,8 @@
         }
     });
 
-
-
 </script>
+
 </body>
 </html>
 

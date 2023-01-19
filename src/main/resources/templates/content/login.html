@@ -1,10 +1,10 @@
 <!DOCTYPE HTML>
+<html  xmlns:th="http://www.thymeleaf.org"
+       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+       layout:decorate="~{layout/default_layout}">
 
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
-<th:block th:include="layout/fragments/header"></th:block>
-
-<body class="text-center">
-
+<th:block layout:fragment="content">
+    <!-- Begin Page Content -->
     <!--  html 전체 영역을 지정하는 container -->
     <div id="container">
         <!--  login 폼 영역을 : loginBox -->
@@ -27,42 +27,43 @@
         </div>
     </div>
 
-<th:block th:include="layout/fragments/scripts"></th:block>
 
-<script>
 
-    const username =  document.getElementById("userName");
-    const loginBtn = document.querySelector(".button-login-box");
+</th:block>
 
-    username.addEventListener("keyup", function (event) {
-        if (event.key === "Enter") {
-            event.preventDefault();
-            loginBtn.click();
-        }
-    });
+<th:block layout:fragment="js">
+    <script>
 
-    loginBtn.addEventListener("click", () => {
-        if (username.value === "") {
-            showToast("Please enter your username.", "info");
-        } else {
-            let reqObj = {username: username.value};
-            console.log("reqObj : ", reqObj);
+        const username =  document.getElementById("userName");
+        const loginBtn = document.querySelector(".button-login-box");
 
-            axios.post(location.href+'/user', reqObj)
-            .then(function (response) {
-                console.log(response);
+        username.addEventListener("keypress", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                loginBtn.click();
+            }
+        });
 
-            })
-            .catch(function (error) {
-                showToast("Login failed.", "error");
-                console.log(error);
-            });
-        }
-    });
+        loginBtn.addEventListener("click", () => {
+            if (username.value === "") {
+                showToast("Please enter your username.", "info");
+            } else {
+                let reqObj = {userName: username.value};
+                console.log(JSON.stringify(reqObj));
+                axios.post(location.href+'/user', JSON.stringify(reqObj),{headers: { "Content-Type": 'application/json'}})
+                    .then(function (response) {
+                        console.log(response);
+                    })
+                    .catch(function (error) {
+                        showToast("Login failed.", "error");
+                        console.log(error);
+                    });
+            }
+        });
 
-</script>
+    </script>
+</th:block>
 
-</body>
 </html>
 
 

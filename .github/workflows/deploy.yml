@@ -10,7 +10,7 @@ jobs:
       ## 형상 다운로드
       - name: Checkout repository
         uses: actions/checkout@v3
-      ## 빌드
+      ## 빌드 ; -Pprod : prod Profile을 사용하여 빌드 ; -x test : test를 제외하고 빌드
       - name: Execute Gradle build
         run: ./gradlew build -Pprod -x test
       # jar SecureCopy to server

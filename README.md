@@ -42,7 +42,7 @@ Bootstrap 5.2.2
 ### TODO
 
 
-* ApplicationContext - ApplicationEvent 검토  
+* ApplicationContext - ApplicationEvent 검토 및 활용 범위 검토  
 * websocket, STOMP 검토
 * KAFKA TOPIC, PARTITION 검토 
   - room 단위는 어떻게 처리할까?

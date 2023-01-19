@@ -10,6 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class LoginController {
 
+    /***
+     * 로그인 페이지
+     * @param request
+     */
     @GetMapping("/login")
     public String login(HttpServletRequest request) {
         return "content/login";

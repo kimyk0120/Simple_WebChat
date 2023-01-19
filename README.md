@@ -2,7 +2,7 @@
 
 
 
-## Introduction
+## 1. Introduction
 
 This is a simple webchat application that uses Kafka as a message broker. It is a simple application that uses the following tools:
 ```
@@ -16,15 +16,15 @@ Bootstrap 5.2.2
 
 ---
 
-### DONE
+### 2. DONE
 
 * 프로젝트 init
   - VCS 설정 (git)
 * PROJECT WELCOME PAGE 설정
   - static resource > index.html
 * css framework 선정
-  - Bootstrap (o)
-* Template Engine Thymeleaf Dependency 추가
+  - Bootstrap5
+* Template Engine Thymeleaf 설정
 * CI/CD 설정
   - GitHub action
     +  deploy.yml, deploy.sh 작성 및 테스트 완료
@@ -39,7 +39,7 @@ Bootstrap 5.2.2
 
 ---
 
-### TODO
+### 3. TODO
 
 * 로그인 화면 UI 구현
   * Nick input form, toast message, validation
@@ -52,8 +52,7 @@ Bootstrap 5.2.2
 
 ---
 
-### ERROR HANDLING
-
+### 4. ERROR HANDLING
 
 * error: invalid source release: 17
   - [PROJECT] build.gradle > sourceCompatibility = 11
@@ -61,7 +60,7 @@ Bootstrap 5.2.2
 
 ---
 
-### REFERENCE & TIPS
+### 5. REFERENCE & TIPS
 
 * fire wall : iptables -I INPUT 1 -p tcp --dport 8080 -j ACCEPT
 * https://mdbootstrap.com/docs/standard/getting-started/installation/ 

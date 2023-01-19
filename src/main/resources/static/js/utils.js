@@ -1,7 +1,8 @@
 
 
-
-//  requirement : toastify
+// toast msg function
+// requirement : toastify
+// styleNm : info, error, warn
 function showToast(message, styleNm) {
 
     const infoToastStyle  = {background: "linear-gradient(to right, #42a5ef, #3d50c9)",}
@@ -34,6 +35,7 @@ function showToast(message, styleNm) {
 }
 
 // 특수문자 입력 방지
+// requirement : toastify
 function characterCheck(obj){
     const regExp = /[ \{\}\[\]\/?.,;:|\)*~`!^\-_+┼<>@\#$%&\'\"\\\(\=]/gi;
     if( regExp.test(obj.value) ){

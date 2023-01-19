@@ -23,7 +23,7 @@
             <div id="inputBox">
                 <div class="input-form-box">
                     <label class="w-100">
-                        <input type="text" name="uid" class="form-control" placeholder="Username" id="userName" />
+                        <input type="text" name="uid" class="form-control" placeholder="Username" id="userName"  onkeyup="characterCheck(this)" />
                     </label>
                 </div>
                 <div class="button-login-box" >
@@ -36,35 +36,38 @@
 
 <script src="/MDB5-STANDARD-UI-KIT-Free-6.1.0/js/mdb.min.js"></script>
 <script src="/js/toastify.js"></script>
+<script src="/js/axios.js"></script>
+<script src="/js/utils.js"></script>
 <script>
-
-    const alertObj = Toastify({
-        text: "Please enter your username",
-        duration: 1000,
-        newWindow: true,
-        close: true,
-        gravity: "top", // `top` or `bottom`
-        position: "left", // `left`, `center` or `right`
-        stopOnFocus: true, // Prevents dismissing of toast on hover
-        style: {
-            background: "linear-gradient(to right, #42a5ef, #3d50c9)",
-        },
-        onClick: function(){ // Callback after click
-            alertObj.hideToast();
-        }
-    });
 
     const username =  document.getElementById("userName");
     const loginBtn = document.querySelector(".button-login-box");
 
-    loginBtn.addEventListener("click", () => {
-        if(username.value === ""){
-            alertObj.showToast();
-        }else{
-            console.log(username.value);
-            // location.href = "/chat";
+    username.addEventListener("keyup", function (event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            loginBtn.click();
         }
     });
+
+    loginBtn.addEventListener("click", () => {
+        if (username.value === "") {
+            showToast("Please enter your username.", "info");
+        } else {
+            let reqObj = {username: username.value};
+            console.log("reqObj : ", reqObj);
+
+            axios.post(location.href+'/user', reqObj)
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                showToast("Login failed.", "error");
+                console.log(error);
+            });
+        }
+    });
+
 
 
 </script>

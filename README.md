@@ -35,13 +35,14 @@ Bootstrap 5.2.2
   - cli producer, consumer 실행 및 확인
 * JAVA-KAFKA 설정 및 연동 테스트
   - producer, consumer, topic
-* 로그인 화면 UI 구현
+
 
 ---
 
 ### TODO
 
-
+* 로그인 화면 UI 구현
+  * Nick input form, toast message, validation
 * ApplicationContext - ApplicationEvent 검토 및 활용 범위 검토  
 * websocket, STOMP 검토
 * KAFKA TOPIC, PARTITION 검토 

@@ -11,7 +11,11 @@ SPRING BOOT 2.7.1
 GRADLE 7.6
 KAFKA 2.13-3.2.0
 DB (MongoDB) - Not yet
-Bootstrap 5.2.2
+MDBootstrap 6.1.0
+ThymeLeaf 3.0.15
+``` 
+```
+
 ```
 
 ---
@@ -22,14 +26,10 @@ Bootstrap 5.2.2
   - VCS 설정 (git)
 * PROJECT WELCOME PAGE 설정
   - static resource > index.html
-* css framework 선정
-  - Bootstrap5
-* Template Engine 설정
-  - Thymeleaf
-  - Default Template 설정
-* CI/CD 설정
-  - GitHub action
-    +  deploy.yml, deploy.sh 작성 및 테스트 
+* css framework 선정 > MDBootstrap
+* Template Engine 설정 > Thymeleaf
+* CI/CD 설정 > GitHub action
+  - deploy.yml, deploy.sh 작성 및 테스트 
 * KAFKA 및 ZOOKEEPER 설치 및 CLI 실행 확인 (port:9092)
   - 서버 JAVA OPENJDK 11 설치 및 설정
   - zookeeper, kafka 설치 및 시스템데몬 등록
@@ -67,6 +67,8 @@ Bootstrap 5.2.2
 * js Keydown 이벤트 한글 중복 입력 현상 
   - https://kwangsunny.tistory.com/33 ; , 한글이나 중국어같이 영어가 아닌 글자들은 한 글자가 영어보다 많은 정보를 담고있기 때문에 키입력 순간부터 입력완료 까지 시간이 걸리고, 이는 keydown 이벤트가 이미 발생되고 난 후에도 진행중일 수 있다
   - 방안 keydown => keypress 로 변경
+* 컨트롤러 두 번씩 호출 현상 
+  - href="#" 으로 인한 문제
 
 ---
 

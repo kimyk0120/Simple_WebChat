@@ -24,10 +24,12 @@ Bootstrap 5.2.2
   - static resource > index.html
 * css framework 선정
   - Bootstrap5
-* Template Engine Thymeleaf 설정
+* Template Engine 설정
+  - Thymeleaf
+  - Default Template 설정
 * CI/CD 설정
   - GitHub action
-    +  deploy.yml, deploy.sh 작성 및 테스트 완료
+    +  deploy.yml, deploy.sh 작성 및 테스트 
 * KAFKA 및 ZOOKEEPER 설치 및 CLI 실행 확인 (port:9092)
   - 서버 JAVA OPENJDK 11 설치 및 설정
   - zookeeper, kafka 설치 및 시스템데몬 등록
@@ -37,18 +39,21 @@ Bootstrap 5.2.2
   - producer, consumer, topic
 * 로그인 화면 UI 구현
   * Nick input form, toast message, validation, thymeleaf layout 설정
+  * toastify, axios 라이브러리 추가
 
 ---
 
 ### 3. TODO
 
 * chatRooms 화면 UI 구현
-  - chatRoom list
+  - chatRoom list layout: chat 목록 나열, chatRoom 생성 버튼, chatRoom 입장 버튼
+* chatRomm 화면 UI 구현
+  - chatRoom layout: chatRoom title, chatRoom 입장자 목록, chatRoom 채팅창, chatRoom 채팅 입력창, chatRoom 나가기 버튼, chat Message layout
 * ApplicationContext - ApplicationEvent 검토 및 활용 범위 검토  
 * websocket, STOMP 검토
 * KAFKA TOPIC, PARTITION 검토 
   - room 단위는 어떻게 처리할까?
-* DB 설계
+* DB 활용범위 검토
 
 
 ---
@@ -67,8 +72,9 @@ Bootstrap 5.2.2
 
 ### 5. REFERENCE & TIPS
 
-* fire wall : iptables -I INPUT 1 -p tcp --dport 8080 -j ACCEPT
-* https://mdbootstrap.com/docs/standard/getting-started/installation/ 
-* https://getbootstrap.kr/
+* fire wall CMD: iptables -I INPUT 1 -p tcp --dport 8080 -j ACCEPT
+* MDB : https://mdbootstrap.com/docs/standard/getting-started/installation/ 
+* Bootstrap Doc : https://getbootstrap.kr/
+* Chat UI : https://mdbootstrap.com/docs/standard/design-blocks/chat/
 
 

@@ -12,7 +12,7 @@ import java.util.UUID;
 
 @Slf4j
 @Controller
-@RequestMapping("login")
+@RequestMapping("/login")
 public class LoginController {
 
     private final UserService userService;

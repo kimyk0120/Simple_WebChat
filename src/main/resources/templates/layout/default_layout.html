@@ -2,16 +2,16 @@
 <html lang="ko" xmlns:="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
 <!-- 공통 헤드-->
-<th:block th:replace="/layout/fragments/header :: headFragment"></th:block>
+<th:block th:replace="layout/fragments/header :: headFragment"></th:block>
 <body>
 <!-- 본문-->
 <th:block layout:fragment="content"></th:block>
 
 <!-- 공통 하단-->
-<th:block th:replace="/layout/fragments/footer :: footerFragment"></th:block>
+<th:block th:replace="layout/fragments/footer :: footerFragment"></th:block>
 
 <!-- 공통 스크립트-->
-<th:block th:replace="/layout/fragments/scripts :: scriptsFragment"></th:block>
+<th:block th:replace="layout/fragments/scripts :: scriptsFragment"></th:block>
 
 <!-- js-->
 <th:block layout:fragment="js"></th:block>

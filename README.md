@@ -69,6 +69,10 @@ ThymeLeaf 3.0.15
   - 방안 keydown => keypress 로 변경
 * 컨트롤러 두 번씩 호출 현상 
   - href="#" 으로 인한 문제
+* thymeleaf : template might not exist ..... 
+  - templates의 상대경로로 잡아줘야함  /layout/default_layout.html > layout/default_layout.html
+  - https://jamong-icetea.tistory.com/190
+  
 
 ---
 

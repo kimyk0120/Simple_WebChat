@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.UUID;
 
 @Slf4j
 @Controller
@@ -31,7 +32,10 @@ public class LoginController {
      */
     @PostMapping("/user")
     public @ResponseBody String user(HttpServletResponse response, @RequestBody User user) {
-        log.info(user.getUserName());
+//        log.info(user.getUserName());
+//        user.setUserId(String.valueOf(UUID.randomUUID()));
+//        log.info(user.getUserId());
+//        response.setHeader("Set-Cookie", "userId=" + user.getUserId());
         return "Succees";
     }
 

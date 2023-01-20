@@ -49,10 +49,11 @@
                 showToast("Please enter your username.", "info");
             } else {
                 let reqObj = {userName: username.value};
-                console.log(JSON.stringify(reqObj));
-                axios.post(location.href+'/user', JSON.stringify(reqObj),{headers: { "Content-Type": 'application/json'}})
+                //console.log(JSON.stringify(reqObj));
+                axios.post(location.href+'/user', JSON.stringify(reqObj),{withCredentials:true, headers: { "Content-Type": 'application/json'}})
                     .then(function (response) {
                         console.log(response);
+                        console.log(document.cookie)
                     })
                     .catch(function (error) {
                         showToast("Login failed.", "error");

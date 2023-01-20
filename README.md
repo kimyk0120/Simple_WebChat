@@ -42,7 +42,8 @@ Bootstrap 5.2.2
 
 ### 3. TODO
 
-
+* chatRooms 화면 UI 구현
+  - chatRoom list
 * ApplicationContext - ApplicationEvent 검토 및 활용 범위 검토  
 * websocket, STOMP 검토
 * KAFKA TOPIC, PARTITION 검토 

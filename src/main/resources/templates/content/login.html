@@ -54,6 +54,7 @@
                     .then(function (response) {
                         console.log(response);
                         console.log(document.cookie)
+                        location.href = "/chatRooms";
                     })
                     .catch(function (error) {
                         showToast("Login failed.", "error");

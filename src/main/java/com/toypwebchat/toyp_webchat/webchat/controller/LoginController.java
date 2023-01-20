@@ -1,6 +1,7 @@
 package com.toypwebchat.toyp_webchat.webchat.controller;
 
 import com.toypwebchat.toyp_webchat.webchat.model.User;
+import com.toypwebchat.toyp_webchat.webchat.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +15,12 @@ import java.util.UUID;
 @RequestMapping("/login")
 public class LoginController {
 
+    private final UserService userService;
+
+    public LoginController(UserService userService) {
+        this.userService = userService;
+    }
+
     /***
      * 로그인 페이지
      * @param request
@@ -23,20 +30,23 @@ public class LoginController {
         return "content/login";
     }
 
+
     /***
      * 로그인 처리
-     * - 로그인 성공시 세션에 사용자 정보를 저장.
      * @param response
      * @param user
      * @return
      */
     @PostMapping("/user")
-    public @ResponseBody String user(HttpServletResponse response, @RequestBody User user) {
-//        log.info(user.getUserName());
-//        user.setUserId(String.valueOf(UUID.randomUUID()));
-//        log.info(user.getUserId());
-//        response.setHeader("Set-Cookie", "userId=" + user.getUserId());
+    public @ResponseBody String user(HttpServletRequest request, HttpServletResponse response, @RequestBody User user) {
+        // userId 생성
+        log.info(user.getUserName());
+        user.setUserId(String.valueOf(UUID.randomUUID()));
+
+        userService.setSessionAndCookie(request, response, user);
+
         return "Succees";
     }
+
 
 }

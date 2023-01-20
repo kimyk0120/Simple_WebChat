@@ -12,9 +12,25 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("/chatRooms")
 public class RoomController {
 
+    /***
+     * 채팅방 목록 페이지
+      * @param request
+     * @return
+     */
     @GetMapping("")
     public String chatRooms(HttpServletRequest request) {
         return "content/chatRooms";
     }
+
+    /***
+     * 채팅방 페이지
+     * @param request
+     * @return
+     */
+    @GetMapping("/room")
+    public String chatRoom(HttpServletRequest request) {
+        return "content/chatRoom";
+    }
+
 
 }//.class

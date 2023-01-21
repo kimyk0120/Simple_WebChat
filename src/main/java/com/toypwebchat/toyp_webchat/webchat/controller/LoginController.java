@@ -40,7 +40,7 @@ public class LoginController {
     @PostMapping("/user")
     public @ResponseBody String user(HttpServletRequest request, HttpServletResponse response, @RequestBody User user) {
         // userId 생성
-        log.info(user.getUserName());
+        log.info("login user Name :  "  + user.getUserName());
         user.setUserId(String.valueOf(UUID.randomUUID()));
 
         userService.setSessionAndCookie(request, response, user);

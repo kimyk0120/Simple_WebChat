@@ -1,6 +1,5 @@
 package com.toypwebchat.toyp_webchat.webchat.controller;
 
-import com.toypwebchat.toyp_webchat.webchat.common.utils.CookieUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,9 +19,8 @@ public class RoomController {
      */
     @GetMapping("chatRooms")
     public String chatRooms(HttpServletRequest request) {
-        String value = CookieUtils.getCookie(request, "userId");
-        log.info("value : {}", value);
-        log.info("########");
+        //String value = CookieUtils.getCookie(request, "userId");
+        //log.info("cookie value(userId) : {}", value);
         return "content/chatRooms";
     }
 

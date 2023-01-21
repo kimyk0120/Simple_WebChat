@@ -10,7 +10,7 @@ JAVA 11
 SPRING BOOT 2.7.1
 GRADLE 7.6
 KAFKA 2.13-3.2.0
-DB (MongoDB) - Not yet
+MongoDB - 5.0.14
 MDBootstrap 6.1.0
 ThymeLeaf 3.0.15
 ``` 
@@ -42,7 +42,9 @@ ThymeLeaf 3.0.15
 
 ### 3. TODO
 
-* DB server 설치 및 설정 
+* DB 
+  - MongoDB svr 설치 및 설정
+  - DB 연동 및 테스트
 * chatRooms 화면 UI 구현
   - chatRoom list layout: chat 목록 나열, chatRoom 생성 버튼, chatRoom 입장 버튼
 * chatRomm 화면 UI 구현
@@ -51,7 +53,7 @@ ThymeLeaf 3.0.15
 * websocket, STOMP 검토
 * KAFKA TOPIC, PARTITION 검토 
   - room 단위는 어떻게 처리할까?
-* DB 활용범위 검토
+
 
 
 ---
@@ -80,5 +82,7 @@ ThymeLeaf 3.0.15
 * MDB : https://mdbootstrap.com/docs/standard/getting-started/installation/ 
 * Bootstrap Doc : https://getbootstrap.kr/
 * Chat UI : https://mdbootstrap.com/docs/standard/design-blocks/chat/
+* MongoDb : https://www.infracody.com/2022/05/install-mongodb-on-centos-7.html 
+
 
 

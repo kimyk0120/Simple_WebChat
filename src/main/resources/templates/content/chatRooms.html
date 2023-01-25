@@ -1,17 +1,149 @@
 <!DOCTYPE HTML>
+<!--suppress JSUnresolvedVariable -->
 <html  xmlns:th="http://www.thymeleaf.org"
        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
        layout:decorate="~{layout/default_layout}">
 
 <th:block layout:fragment="content">
-    <div id="container">
-        chatRooms
-    </div>
+
+    <section>
+
+        <div class="container py-5">
+
+            <div class="row">
+
+                <h5 class="font-weight-bold mb-3 text-center">Rooms</h5>
+
+
+                <div class="card">
+                    <div class="card-body">
+
+                        <ul class="list-unstyled mb-0">
+
+                            <li class="p-3 border">
+                                <a class="d-flex justify-content-between">
+                                    <div class="d-flex flex-row">
+                                        <div class="pt-1">
+                                            <p class="fw-bold mb-0">John Doe</p>
+                                        </div>
+                                    </div>
+                                    <div class="pt-1">
+                                        <p class="small text-muted mb-1">2022-03-01 18:40:65</p>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li class="p-3 border">
+                                <a class="d-flex justify-content-between">
+                                    <div class="d-flex flex-row">
+                                        <div class="pt-1">
+                                            <p class="fw-bold mb-0">John Doe</p>
+                                        </div>
+                                    </div>
+                                    <div class="pt-1">
+                                        <p class="small text-muted mb-1">2022-03-01 18:40:65</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="p-3 border">
+                                <a class="d-flex justify-content-between">
+                                    <div class="d-flex flex-row">
+                                        <div class="pt-1">
+                                            <p class="fw-bold mb-0">John Doe</p>
+                                        </div>
+                                    </div>
+                                    <div class="pt-1">
+                                        <p class="small text-muted mb-1">2022-03-01 18:40:65</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="p-3 border">
+                                <a class="d-flex justify-content-between">
+                                    <div class="d-flex flex-row">
+                                        <div class="pt-1">
+                                            <p class="fw-bold mb-0">John Doe</p>
+                                        </div>
+                                    </div>
+                                    <div class="pt-1">
+                                        <p class="small text-muted mb-1">2022-03-01 18:40:65</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="p-3 border">
+                                <a class="d-flex justify-content-between">
+                                    <div class="d-flex flex-row">
+                                        <div class="pt-1">
+                                            <p class="fw-bold mb-0">John Doe</p>
+                                        </div>
+                                    </div>
+                                    <div class="pt-1">
+                                        <p class="small text-muted mb-1">2022-03-01 18:40:65</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="p-3 border">
+                                <a class="d-flex justify-content-between">
+                                    <div class="d-flex flex-row">
+                                        <div class="pt-1">
+                                            <p class="fw-bold mb-0">John Doe</p>
+                                        </div>
+                                    </div>
+                                    <div class="pt-1">
+                                        <p class="small text-muted mb-1">2022-03-01 18:40:65</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="p-3 border">
+                                <a class="d-flex justify-content-between">
+                                    <div class="d-flex flex-row">
+                                        <div class="pt-1">
+                                            <p class="fw-bold mb-0">John Doe</p>
+                                        </div>
+                                    </div>
+                                    <div class="pt-1">
+                                        <p class="small text-muted mb-1">2022-03-01 18:40:65</p>
+                                    </div>
+                                </a>
+                            </li>
+
+
+
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </th:block>
 
 <th:block layout:fragment="js">
     <script>
-        console.log(document.cookie);
+        //console.log(document.cookie);
+        const container = document.getElementById("container");
+
+        axios.get(location.href+'/getRooms',{})
+            .then(function (response) {
+                console.log(response);
+                //let data = response.data;
+
+                // let newDIV = document.createElement("div");
+                // let newDIV2 = document.createElement("div");
+                //
+                // data.forEach(function (room) {
+                //     newDIV.innerHTML = room.name;
+                //     newDIV2.innerHTML = room.roomId;
+                //     container.append(newDIV);
+                //     container.append(newDIV2);
+                //     console.log(room);
+                // });
+
+            })
+            .catch(function (error) {
+                showToast("getRooms failed.", "error");
+                console.log(error);
+            });
+
     </script>
 </th:block>
 

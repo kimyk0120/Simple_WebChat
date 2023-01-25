@@ -13,7 +13,7 @@ import java.util.List;
 
 @Slf4j
 @Controller
-@RequestMapping("/")
+@RequestMapping("/chatRooms")
 public class RoomController {
 
     private final RoomService roomService;
@@ -27,7 +27,7 @@ public class RoomController {
       * @param request
      * @return
      */
-    @GetMapping("chatRooms")
+    @GetMapping("")
     public String chatRooms(HttpServletRequest request) {
         return "content/chatRooms";
     }

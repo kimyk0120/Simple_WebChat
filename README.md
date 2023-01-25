@@ -48,7 +48,7 @@ ThymeLeaf 3.0.15
 
 
 * chatRooms 화면 UI 구현
-  - chatRoom list layout: chat 목록 나열, chatRoom 생성 버튼, chatRoom 입장 버튼
+  - chatRoom list layout: chat 목록 나열, chatRoom 생성 버튼, ~~chatRoom 입장 버튼~~
 * chatRomm 화면 UI 구현
   - chatRoom layout: chatRoom title, chatRoom 입장자 목록, chatRoom 채팅창, chatRoom 채팅 입력창, chatRoom 나가기 버튼, chat Message layout
 * ApplicationContext - ApplicationEvent 검토 및 활용 범위 검토  
@@ -86,6 +86,6 @@ ThymeLeaf 3.0.15
 * Chat UI : https://mdbootstrap.com/docs/standard/design-blocks/chat/
 * MongoDb : https://www.infracody.com/2022/05/install-mongodb-on-centos-7.html
 * Kafka Topic Naming Convention : https://data-engineer-tech.tistory.com/36
-
+* mongodb conf path : /etc/mongod.conf
 
 

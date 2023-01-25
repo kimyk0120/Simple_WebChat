@@ -1,10 +1,18 @@
 package com.toypwebchat.toyp_webchat.webchat.controller;
 
+import com.toypwebchat.toyp_webchat.webchat.common.dto.BasicResponse;
 import com.toypwebchat.toyp_webchat.webchat.model.User;
+import com.toypwebchat.toyp_webchat.webchat.model.event.UserRegEvent;
 import com.toypwebchat.toyp_webchat.webchat.service.UserService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,10 +23,10 @@ import java.util.UUID;
 @RequestMapping("/login")
 public class LoginController {
 
-    private final UserService userService;
+    private final ApplicationEventPublisher applicationEventPublisher;
 
-    public LoginController(UserService userService) {
-        this.userService = userService;
+    public LoginController(UserService userService, ApplicationEventPublisher applicationEventPublisher) {
+        this.applicationEventPublisher = applicationEventPublisher;
     }
 
     /***
@@ -38,15 +46,15 @@ public class LoginController {
      * @return
      */
     @PostMapping("/user")
-    public @ResponseBody String user(HttpServletRequest request, HttpServletResponse response, @RequestBody User user) {
+    public ResponseEntity<? extends BasicResponse> user(HttpServletRequest request, HttpServletResponse response, @RequestBody User user) {
         // userId 생성
-        log.info("login user Name :  "  + user.getUserName());
         user.setUserId(String.valueOf(UUID.randomUUID()));
+        log.info("login user Name :  "  + user.getUserName());
+        log.info("user Id : " + user.getUserId());
 
-        userService.setSessionAndCookie(request, response, user);
-        userService.saveUser(user);
-
-        return "Succees";
+        UserRegEvent userRegEvent = new UserRegEvent(user, request, response);
+        applicationEventPublisher.publishEvent(userRegEvent);
+        return ResponseEntity.status(HttpStatus.OK).body(null);
     }
 
 

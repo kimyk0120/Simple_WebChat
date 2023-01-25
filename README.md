@@ -43,8 +43,9 @@ ThymeLeaf 3.0.15
 ### 3. TODO
 
 * DB 
-  - MongoDB svr 설치 및 설정 (p:27017)
+  - MongoDB svr 설치 및 설정 (p:27017, 사용자 설정)
   - DB 연동 및 테스트
+  - DB properties secret 처리
 * chatRooms 화면 UI 구현
   - chatRoom list layout: chat 목록 나열, chatRoom 생성 버튼, chatRoom 입장 버튼
 * chatRomm 화면 UI 구현

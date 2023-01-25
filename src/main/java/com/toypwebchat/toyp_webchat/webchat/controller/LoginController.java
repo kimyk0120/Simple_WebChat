@@ -44,6 +44,7 @@ public class LoginController {
         user.setUserId(String.valueOf(UUID.randomUUID()));
 
         userService.setSessionAndCookie(request, response, user);
+        userService.saveUser(user);
 
         return "Succees";
     }

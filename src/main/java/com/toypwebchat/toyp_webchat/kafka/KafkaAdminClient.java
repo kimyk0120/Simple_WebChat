@@ -1,15 +1,15 @@
 package com.toypwebchat.toyp_webchat.kafka;
 
 import lombok.extern.slf4j.Slf4j;
-import org.apache.kafka.clients.admin.AdminClient;
-import org.apache.kafka.clients.admin.AdminClientConfig;
-import org.apache.kafka.clients.admin.NewTopic;
+import org.apache.kafka.clients.admin.*;
+import org.apache.kafka.common.KafkaFuture;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.config.TopicBuilder;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.ExecutionException;
 
@@ -57,7 +57,13 @@ public class KafkaAdminClient {
 
 
     public static void getTopics() throws ExecutionException, InterruptedException {
-        client.listTopics().names().get().forEach(log::info);
+        ListTopicsResult listTopicsResult = client.listTopics();
+        KafkaFuture<Map<String, TopicListing>> mapKafkaFuture = listTopicsResult.namesToListings();
+        Map<String, TopicListing> stringTopicListingMap = mapKafkaFuture.get();
+        stringTopicListingMap.forEach((k, v) -> {
+            log.info("k : " + k);
+            log.info("v : " + v);
+        });
     }
 
 }

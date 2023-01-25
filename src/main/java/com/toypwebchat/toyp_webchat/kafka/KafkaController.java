@@ -29,7 +29,7 @@ public class KafkaController {
 
     @GetMapping(value = "/create-topics")
     public String createTopic() {
-        KafkaAdminClient.createTopics("test3");
+        KafkaAdminClient.createTopics("test2");
         return "success createTopic";
     }
 

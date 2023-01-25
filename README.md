@@ -84,7 +84,8 @@ ThymeLeaf 3.0.15
 * MDB : https://mdbootstrap.com/docs/standard/getting-started/installation/ 
 * Bootstrap Doc : https://getbootstrap.kr/
 * Chat UI : https://mdbootstrap.com/docs/standard/design-blocks/chat/
-* MongoDb : https://www.infracody.com/2022/05/install-mongodb-on-centos-7.html 
+* MongoDb : https://www.infracody.com/2022/05/install-mongodb-on-centos-7.html
+* Kafka Topic Naming Convention : https://data-engineer-tech.tistory.com/36
 
 
 

@@ -7,9 +7,12 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      ## 형상 다운로드
+      ## 형상 다운로드 & DB 정보 파일 생성
       - name: Checkout repository
         uses: actions/checkout@v3
+      - run: touch ./src/main/resources/application-mongoprod.properties
+      - run: echo "${{ secrets.DB_INFO }}" > ./src/main/resources/application-mongoprod.properties
+      - run: cat ./src/main/resources/application-mongoprod.properties
       ## 빌드 ; -Pprod : prod Profile을 사용하여 빌드 ; -x test : test를 제외하고 빌드
       - name: Execute Gradle build
         run: ./gradlew build -Pprod -x test

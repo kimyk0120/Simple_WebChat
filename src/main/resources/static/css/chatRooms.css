@@ -1,0 +1,14 @@
+
+.make-chat-room-btn {
+    width: 50px;
+    height: auto;
+    display: inline-block;
+    float: right;
+    cursor: pointer;
+}
+
+.no-room-li {
+    text-align: center;
+    line-height: 40vh;
+    height: 50vh;
+}

@@ -7,24 +7,19 @@
 <th:block layout:fragment="content">
 
 
-        <a>
-            <img src="img/icons8-plus-100.png" alt="">
-        </a>
-
 
     <section>
 
         <div class="container py-5">
-
             <div class="row">
-
-                <h5 class="font-weight-bold mb-3 text-center">Rooms</h5>
-
-
+                <h5 class="font-weight-bold text-center">Rooms</h5>
+                <a>
+                    <img src="img/icons8-plus-100.png" alt="" style="width: 50px; height: auto;display: inline-block;float: right;">
+                </a>
                 <div class="card">
                     <div class="card-body">
 
-                        <ul class="list-unstyled mb-0">
+                        <ul class="list-unstyled mb-0" id="chatRoomListContainer">
 
                             <li class="p-3 border">
                                 <a class="d-flex justify-content-between">
@@ -121,17 +116,39 @@
             </div>
         </div>
     </section>
+
 </th:block>
 
 <th:block layout:fragment="js">
     <script>
         //console.log(document.cookie);
-        const container = document.getElementById("container");
+        const chatRoomListContainer = document.getElementById("chatRoomListContainer");
+
+        let htmlliElement = document.createElement("li");
+
+
+
+        // <li className="p-3 border">
+        //     <a className="d-flex justify-content-between">
+        //         <div className="d-flex flex-row">
+        //             <div className="pt-1">
+        //                 <p className="fw-bold mb-0">John Doe</p>
+        //             </div>
+        //         </div>
+        //         <div className="pt-1">
+        //             <p className="small text-muted mb-1">2022-03-01 18:40:65</p>
+        //         </div>
+        //     </a>
+        // </li>
 
         axios.get(location.href+'/getRooms',{})
             .then(function (response) {
                 console.log(response);
-                //let data = response.data;
+                // let data = response.data;
+                let str = "<h1>test</h1>";
+                chatRoomListContainer.insertAdjacentHTML("beforeend", str)
+                chatRoomListContainer.insertAdjacentHTML("beforeend", str)
+                chatRoomListContainer.insertAdjacentHTML("beforeend", str)
 
                 // let newDIV = document.createElement("div");
                 // let newDIV2 = document.createElement("div");

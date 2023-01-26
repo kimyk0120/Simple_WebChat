@@ -16,7 +16,7 @@
             <div class="row">
                 <h5 class="font-weight-bold text-center">Rooms</h5>
                 <a>
-                    <img class="make-chat-room-btn" src="img/icons8-plus-100.png" alt="">
+                    <img class="make-chat-room-btn cursor-pointer-action-btn" src="img/icons8-plus-100.png" alt="">
                 </a>
                 <div class="card">
                     <div class="card-body">
@@ -31,7 +31,8 @@
 
 <th:block layout:fragment="js">
     <script>
-        //console.log(document.cookie);
+        let userCookieId = getCookie("userId");
+        console.log(userCookieId);
         const chatRoomListContainer = document.getElementById("chatRoomListContainer");
 
         axios.get(location.href + '/getRooms', {})
@@ -42,11 +43,10 @@
                     chatRoomListContainer.append(makeNoRoomLi());
                 } else {
                     resData.forEach(function (item) {
-                        console.log(item);
                         let name = item.name;
                         let createdAt = new Date(item.createdAt).toLocaleString();
                         let roomId = item.roomId;
-                        // chatRoomListContainer.appendChild(makeChatListLi());
+                        chatRoomListContainer.appendChild(makeChatListLi(name, createdAt, roomId));
                     });
                 }
             })

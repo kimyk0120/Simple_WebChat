@@ -39,18 +39,19 @@ function characterCheck(obj) {
 }
 
 
-function makeChatListLi() {
+function makeChatListLi(name, createdAt, roomId) {
     let htmlliElement = document.createElement("li");
-    htmlliElement.className = "p-3 border";
+    htmlliElement.className = "p-3 border cursor-pointer cursor-pointer-action";
     let htmlaElement = document.createElement("a");
     htmlaElement.className = "d-flex justify-content-between";
+    htmlaElement.setAttribute("room-id", roomId);
     let htmlDivElement1 = document.createElement("div");
     htmlDivElement1.className = "d-flex flex-row";
     let htmlDivElement2 = document.createElement("div");
     htmlDivElement2.className = "pt-1";
     let htmlpElement = document.createElement("p");
     htmlpElement.className = "fw-bold mb-0";
-    htmlpElement.innerText = "test";
+    htmlpElement.innerText = name;
     htmlDivElement2.appendChild(htmlpElement);
     htmlDivElement1.appendChild(htmlDivElement2);
     htmlaElement.appendChild(htmlDivElement1);
@@ -58,7 +59,7 @@ function makeChatListLi() {
     htmlDivElement3.className = "pt-1";
     let htmlpElement2 = document.createElement("p");
     htmlpElement2.className = "small text-muted mb-1";
-    htmlpElement2.innerText = "0000-00-00 00:00:00";
+    htmlpElement2.innerText = createdAt;
     htmlDivElement3.appendChild(htmlpElement2);
     htmlaElement.appendChild(htmlDivElement3);
     htmlliElement.appendChild(htmlaElement);
@@ -71,4 +72,18 @@ function makeNoRoomLi() {
     htmlliElement.className = "p-3 no-room-li";
     htmlliElement.innerText = "No Rooms yet.";
     return htmlliElement;
+}
+
+
+function getCookie(cookie_name) {
+    let x, y;
+    const val = document.cookie.split(';');
+    for (let i = 0; i < val.length; i++) {
+        x = val[i].substr(0, val[i].indexOf('='));
+        y = val[i].substr(val[i].indexOf('=') + 1);
+        x = x.replace(/^\s+|\s+$/g, '');
+        if (x === cookie_name) {
+            return unescape(y);
+        }
+    }
 }

@@ -37,3 +37,30 @@ function characterCheck(obj){
         obj.value = obj.value.substring( 0 , obj.value.length - 1 ); // 입력한 특수문자 한자리 지움
     }
 }
+
+
+function makeChatListLi(){
+    let htmlliElement = document.createElement("li");
+    htmlliElement.className = "p-3 border";
+    let htmlaElement = document.createElement("a");
+    htmlaElement.className = "d-flex justify-content-between";
+    let htmlDivElement1 = document.createElement("div");
+    htmlDivElement1.className = "d-flex flex-row";
+    let htmlDivElement2 = document.createElement("div");
+    htmlDivElement2.className = "pt-1";
+    let htmlpElement = document.createElement("p");
+    htmlpElement.className = "fw-bold mb-0";
+    htmlpElement.innerText = "test";
+    htmlDivElement2.appendChild(htmlpElement);
+    htmlDivElement1.appendChild(htmlDivElement2);
+    htmlaElement.appendChild(htmlDivElement1);
+    let htmlDivElement3 = document.createElement("div");
+    htmlDivElement3.className = "pt-1";
+    let htmlpElement2 = document.createElement("p");
+    htmlpElement2.className = "small text-muted mb-1";
+    htmlpElement2.innerText = "0000-00-00 00:00:00";
+    htmlDivElement3.appendChild(htmlpElement2);
+    htmlaElement.appendChild(htmlDivElement3);
+    htmlliElement.appendChild(htmlaElement);
+    return htmlliElement;
+}

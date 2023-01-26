@@ -124,48 +124,22 @@
         //console.log(document.cookie);
         const chatRoomListContainer = document.getElementById("chatRoomListContainer");
 
-        let htmlliElement = document.createElement("li");
-
-
-
-        // <li className="p-3 border">
-        //     <a className="d-flex justify-content-between">
-        //         <div className="d-flex flex-row">
-        //             <div className="pt-1">
-        //                 <p className="fw-bold mb-0">John Doe</p>
-        //             </div>
-        //         </div>
-        //         <div className="pt-1">
-        //             <p className="small text-muted mb-1">2022-03-01 18:40:65</p>
-        //         </div>
-        //     </a>
-        // </li>
-
         axios.get(location.href+'/getRooms',{})
             .then(function (response) {
                 console.log(response);
                 // let data = response.data;
-                let str = "<h1>test</h1>";
-                chatRoomListContainer.insertAdjacentHTML("beforeend", str)
-                chatRoomListContainer.insertAdjacentHTML("beforeend", str)
-                chatRoomListContainer.insertAdjacentHTML("beforeend", str)
-
-                // let newDIV = document.createElement("div");
-                // let newDIV2 = document.createElement("div");
-                //
-                // data.forEach(function (room) {
-                //     newDIV.innerHTML = room.name;
-                //     newDIV2.innerHTML = room.roomId;
-                //     container.append(newDIV);
-                //     container.append(newDIV2);
-                //     console.log(room);
-                // });
+                chatRoomListContainer.appendChild(makeChatListLi());
+                chatRoomListContainer.appendChild(makeChatListLi());
+                chatRoomListContainer.appendChild(makeChatListLi());
 
             })
             .catch(function (error) {
                 showToast("getRooms failed.", "error");
                 console.log(error);
             });
+
+
+
 
     </script>
 </th:block>

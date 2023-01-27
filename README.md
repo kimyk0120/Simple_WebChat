@@ -47,10 +47,12 @@ ThymeLeaf 3.0.15
 ### 3. TODO
 
 
-* chatRooms 화면 UI 구현
+* chatRooms 
   - chatRoom list layout: chat 목록 나열, chatRoom 생성 버튼, ~~chatRoom 입장 버튼~~
-* chatRomm 화면 UI 구현
+  - chatRooms 화면 기능 구현
+* chatRomm 
   - chatRoom layout: chatRoom title, chatRoom 입장자 목록, chatRoom 채팅창, chatRoom 채팅 입력창, chatRoom 나가기 버튼, chat Message layout
+  - chatRoom 기능 구현
 * ApplicationContext - ApplicationEvent 검토 및 활용 범위 검토  
 * websocket, STOMP 검토
 * KAFKA TOPIC, PARTITION 검토 

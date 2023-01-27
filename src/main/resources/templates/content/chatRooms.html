@@ -15,7 +15,7 @@
         <div class="container py-5">
             <div class="row">
                 <h5 class="font-weight-bold text-center">Rooms</h5>
-                <a>
+                <a id="makeRoomBtn">
                     <img class="make-chat-room-btn cursor-pointer-action-btn" src="img/icons8-plus-100.png" alt="">
                 </a>
                 <div class="card">
@@ -34,7 +34,38 @@
         let userCookieId = getCookie("userId");
         console.log(userCookieId);
         const chatRoomListContainer = document.getElementById("chatRoomListContainer");
+        const makeRoomBtn = document.getElementById("makeRoomBtn");
 
+        // 방 생성 버튼 클릭
+        makeRoomBtn.addEventListener("click", function () {
+            let roomName = prompt("방 이름을 입력해주세요.");
+            if (roomName === null) {
+                return;
+            }
+            if (roomName === "") {
+                showToast("방 이름을 입력해주세요.", "error");
+                return;
+            }
+            axios.post(location.href + '/makeRoom', {
+                name: roomName
+            })
+                .then(function (response) {
+                    console.log(response);
+                    let resData = response.data;
+                    if (resData === "success") {
+                        showToast("방 생성에 성공했습니다.", "success");
+                        location.reload();
+                    } else {
+                        showToast("방 생성에 실패했습니다.", "error");
+                    }
+                })
+                .catch(function (error) {
+                    showToast("makeRoom failed.", "error");
+                    console.log(error);
+                });
+        });
+
+        // 방 목록 가져오기
         axios.get(location.href + '/getRooms', {})
             .then(function (response) {
                 console.log(response);

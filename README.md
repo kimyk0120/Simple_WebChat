@@ -4,21 +4,34 @@
 
 ## 1. Introduction
 
-This is a simple webchat application that uses Kafka as a message broker. 
+```
+KAFKA를 이용한 JAVA기반의 웹채팅 애플리케이션으로 다음 기능을 제공한다.
+ - 다중 사용자가 채팅방에 접속하여 채팅을 주고 받을 수 있다.
+ - 채팅 메세지는 KAFKA를 통해 전달되며, 채팅방에 접속한 사용자는 채팅 메세지를 실시간으로 수신할 수 있다.
+ - 사용자는 채팅방을 생성/조회/삭제/수정할 수 있다. 
+ - 사용자는 채팅방에 접속한 사용자 목록을 조회할 수 있다. 
+ 
+ It is a JAVA-based web chat application using KAFKA and provides the following functions.
+ - Multiple users can connect to the chat room and exchange chat messages.
+ - Chat messages are transmitted through KAFKA, and users connected to the chat room can receive chat messages in real time.
+ - Users can create / retrieve / delete / modify chat rooms.
+ - Users can view the list of users connected to the chat room. 
+ 
+```
 
 <img src="./screenshot/loginpage.png" style="width: 500px; height: auto;" alt="">
 
 This application uses the following tools:
 
-```
-JAVA 11
-SPRING BOOT 2.7.1
-GRADLE 7.6
-KAFKA 2.13-3.2.0
-MongoDB 5.0.14
-MDBootstrap 6.1.0
-ThymeLeaf 3.0.15
-``` 
+
+>JAVA 11  
+>SPRING BOOT 2.7.1  
+>GRADLE 7.6  
+>KAFKA 2.13-3.2.0  
+>MongoDB 5.0.14  
+>MDBootstrap 6.1.0  
+>ThymeLeaf 3.0.15  
+ 
 
 ---
 
@@ -32,15 +45,15 @@ ThymeLeaf 3.0.15
 * Template Engine 설정 > Thymeleaf
 * CI/CD 설정 > GitHub action
   - deploy.yml, deploy.sh 작성 및 테스트 
-* KAFKA 및 ZOOKEEPER 설치 및 CLI 실행 확인 (port:9092)
+* KAFKA 및 ZOOKEEPER 설치 및 CLI 실행 확인 
   - 서버 JAVA OPENJDK 11 설치 및 설정
   - zookeeper, kafka 설치 및 시스템데몬 등록
   - topic 생성 및 확인
   - cli producer, consumer 실행 및 확인
 * JAVA-KAFKA 설정 및 연동 테스트
-  - producer, consumer, topic
+  - producer, consumer, topic API 작성 및 테스트
 * 로그인 화면 UI 구현
-  * Nick input form, toast message, validation, thymeleaf layout 설정
+  * UserName input form, toast message, validation, thymeleaf layout 설정
   * toastify, axios 라이브러리 추가
 * DB
   - MongoDB svr 설치 및 설정

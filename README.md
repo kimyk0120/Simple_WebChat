@@ -49,10 +49,9 @@ ThymeLeaf 3.0.15
 
 * chatRooms
   - chatRoom list layout: chat 목록 나열, chatRoom 생성 버튼 및 팝업, ~~chatRoom 입장 버튼~~
-  - chatRooms 화면 기능 구현
-    - chatRooms 가져오기
+  - chatRooms 화면 기능 구현 : chatRooms 가져오기
     - chatRoom 생성
-    - 
+    - chatRoom 진입
 * chatRomm
   - chatRoom layout: chatRoom title, chatRoom 입장자 목록, chatRoom 채팅창, chatRoom 채팅 입력창, chatRoom 나가기 버튼, chat Message layout
   - chatRoom 기능 구현

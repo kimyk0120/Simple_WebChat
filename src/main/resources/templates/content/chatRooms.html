@@ -15,8 +15,8 @@
         <div class="container py-5">
             <div class="row">
                 <h5 class="font-weight-bold text-center">Rooms</h5>
-                <a id="makeRoomBtn">
-                    <img class="make-chat-room-btn cursor-pointer-action-btn" src="img/icons8-plus-100.png" alt="">
+                <a>
+                    <img class="make-chat-room-btn cursor-pointer-action-btn" src="img/icons8-plus-100.png" alt="" data-mdb-toggle="modal" data-mdb-target="#createRoomModal">
                 </a>
                 <div class="card">
                     <div class="card-body">
@@ -27,6 +27,28 @@
         </div>
     </section>
 
+    <!-- Modal -->
+    <div class="modal fade" id="createRoomModal" tabindex="-1" aria-labelledby="createRoomModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="createRoomModalLabel">Create Room</h5>
+                    <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        <input type="text" class="form-control" id="roomName" placeholder="Please enter the room name">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="mqkeRoomOk">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 </th:block>
 
 <th:block layout:fragment="js">
@@ -34,36 +56,7 @@
         let userCookieId = getCookie("userId");
         console.log(userCookieId);
         const chatRoomListContainer = document.getElementById("chatRoomListContainer");
-        const makeRoomBtn = document.getElementById("makeRoomBtn");
-
-        // 방 생성 버튼 클릭
-        makeRoomBtn.addEventListener("click", function () {
-            let roomName = prompt("방 이름을 입력해주세요.");
-            if (roomName === null) {
-                return;
-            }
-            if (roomName === "") {
-                showToast("방 이름을 입력해주세요.", "error");
-                return;
-            }
-            axios.post(location.href + '/makeRoom', {
-                name: roomName
-            })
-                .then(function (response) {
-                    console.log(response);
-                    let resData = response.data;
-                    if (resData === "success") {
-                        showToast("방 생성에 성공했습니다.", "success");
-                        location.reload();
-                    } else {
-                        showToast("방 생성에 실패했습니다.", "error");
-                    }
-                })
-                .catch(function (error) {
-                    showToast("makeRoom failed.", "error");
-                    console.log(error);
-                });
-        });
+        const mqkeRoomOk = document.getElementById("mqkeRoomOk");
 
         // 방 목록 가져오기
         axios.get(location.href + '/getRooms', {})
@@ -85,6 +78,31 @@
                 showToast("getRooms failed.", "error");
                 console.log(error);
             });
+
+        // 방 생성
+        mqkeRoomOk.addEventListener("click", function () {
+            let roomName = document.getElementById("roomName").value;
+            if (roomName === "") {
+                showToast("Please enter the room name.", "warn");
+                return;
+            }
+            axios.post(location.href + '/makeRoom', {
+                name: roomName
+            })
+                .then(function (response) {
+                    console.log(response);
+                    let resData = response.data;
+                    if (resData.result === "success") {
+                        console.log(resData);
+                    } else {
+                        showToast("Room creation failed.", "error");
+                    }
+                })
+                .catch(function (error) {
+                    showToast("Room creation failed.", "error");
+                    console.log(error);
+                });
+        });
 
 
     </script>

@@ -46,15 +46,25 @@ ThymeLeaf 3.0.15
 
 ### 3. TODO
 
-
-* chatRooms
-  - chatRoom list layout: chat 목록 나열, chatRoom 생성 버튼 및 팝업, ~~chatRoom 입장 버튼~~
-  - chatRooms 화면 기능 구현 : chatRooms 가져오기
-    - chatRoom 생성
-    - chatRoom 진입
 * chatRomm
   - chatRoom layout: chatRoom title, chatRoom 입장자 목록, chatRoom 채팅창, chatRoom 채팅 입력창, chatRoom 나가기 버튼, chat Message layout
   - chatRoom 기능 구현
+    - chatRoom 입장
+    - chatRoom 나가기
+    - chatRoom 채팅 입력
+    - chatRoom 채팅 메시지 수신
+    - chatRoom 채팅 메시지 전송**
+* chatRooms
+  - chatRoom list layout: chat 목록 나열, chatRoom 생성 버튼 및 팝업
+  - chatRooms 화면 기능 구현 : chatRooms 가져오기
+    - chatRoom 생성
+    - chatRoom 진입
+* chatRoom 삭제 로직
+  - 방 접속 인원이 0명이면 삭제
+  - 방 접속 인원은 어떻게 관리할까?
+    - 웹브라우저를 나갈때 마다? : beforeunload  
+    - 페이지 이동 시 마다? : unload
+    - 웹소켓 연결을 끊을때 마다? 
 
 * ApplicationContext - ApplicationEvent 검토 및 활용 범위 검토  
 * websocket, STOMP 검토

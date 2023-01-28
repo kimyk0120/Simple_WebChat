@@ -4,10 +4,11 @@
 
 ## 1. Introduction
 
-This is a simple webchat application that uses Kafka as a message broker. It is a simple application that uses the following tools:
-
+This is a simple webchat application that uses Kafka as a message broker. 
 
 <img src="./screenshot/loginpage.png" style="width: 500px; height: auto;" alt="">
+
+This application uses the following tools:
 
 ```
 JAVA 11

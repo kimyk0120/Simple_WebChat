@@ -39,9 +39,12 @@ function characterCheck(obj) {
 }
 
 
-function makeChatListLi(name, createdAt, roomId) {
+function makeChatListLi(name, createdAt, roomId, callbackfunc) {
     let htmlliElement = document.createElement("li");
     htmlliElement.className = "p-3 border cursor-pointer cursor-pointer-action";
+    htmlliElement.onclick = () => {
+        callbackfunc(htmlliElement)
+    };
     let htmlaElement = document.createElement("a");
     htmlaElement.className = "d-flex justify-content-between";
     htmlaElement.setAttribute("room-id", roomId);

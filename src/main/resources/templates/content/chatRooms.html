@@ -70,7 +70,7 @@
                         let name = item.name;
                         let createdAt = new Date(item.createdAt).toLocaleString();
                         let roomId = item.roomId;
-                        chatRoomListContainer.appendChild(makeChatListLi(name, createdAt, roomId));
+                        chatRoomListContainer.appendChild(makeChatListLi(name, createdAt, roomId, enterRoom));
                     });
                 }
             })
@@ -103,6 +103,13 @@
                     console.log(error);
                 });
         });
+
+        function enterRoom(callbackInfo){
+            //console.log(callbackInfo);
+            let roomId = callbackInfo.querySelector("a").getAttribute("room-id");
+            console.log(roomId);
+
+        }
 
 
     </script>

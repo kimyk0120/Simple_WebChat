@@ -1,10 +1,14 @@
 package com.toypwebchat.toyp_webchat.webchat.controller;
 
+import com.toypwebchat.toyp_webchat.webchat.common.dto.BasicResponse;
 import com.toypwebchat.toyp_webchat.webchat.model.Room;
 import com.toypwebchat.toyp_webchat.webchat.service.RoomService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -51,6 +55,17 @@ public class RoomController {
     @GetMapping("/getRooms")
     public @ResponseBody List<Room> getRooms(HttpServletRequest request) {
         return roomService.getRooms();
+    }
+
+
+    /***
+     * 채팅방 생성
+     * @param request
+     * @return
+     */
+    @PostMapping("/createRoom")
+    public @ResponseBody ResponseEntity<? extends BasicResponse> createRoom(HttpServletRequest request) {
+        return ResponseEntity.status(HttpStatus.OK).body(null);
     }
 
 

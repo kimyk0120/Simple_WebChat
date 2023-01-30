@@ -86,17 +86,11 @@
                 showToast("Please enter the room name.", "warn");
                 return;
             }
-            axios.post(location.href + '/makeRoom', {
+            axios.post(location.href + '/createRoom', {
                 name: roomName
             })
                 .then(function (response) {
                     console.log(response);
-                    let resData = response.data;
-                    if (resData.result === "success") {
-                        console.log(resData);
-                    } else {
-                        showToast("Room creation failed.", "error");
-                    }
                 })
                 .catch(function (error) {
                     showToast("Room creation failed.", "error");

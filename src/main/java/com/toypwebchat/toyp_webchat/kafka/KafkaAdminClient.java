@@ -2,13 +2,15 @@ package com.toypwebchat.toyp_webchat.kafka;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.admin.*;
-import org.apache.kafka.common.KafkaFuture;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.config.TopicBuilder;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Properties;
 import java.util.concurrent.ExecutionException;
 
 @SuppressWarnings("DuplicatedCode")
@@ -24,15 +26,7 @@ public class KafkaAdminClient {
         return client.describeTopics(Collections.singleton(topicName));
     }
 
-    public static void deleteAllTopics() throws ExecutionException, InterruptedException {
-        ListTopicsResult listTopicsResult = client.listTopics();
-        KafkaFuture<Map<String, TopicListing>> mapKafkaFuture = listTopicsResult.namesToListings();
-        Map<String, TopicListing> stringTopicListingMap = mapKafkaFuture.get();
-        Collection<TopicListing> values = stringTopicListingMap.values();
-        Collection<String> topicNames = new ArrayList<>();
-        values.stream().map(TopicListing::name).forEach(topicNames::add);
-        DeleteTopicsResult deleteTopicsResult = client.deleteTopics(topicNames);
-    }
+
 
     @Value("${spring.kafka.bootstrap-servers}")
     public void setBootstrapServer(String bootstrapServer) {
@@ -57,26 +51,40 @@ public class KafkaAdminClient {
 
     public static CreateTopicsResult createTopics(String topicName) {
         NewTopic newTopic = TopicBuilder.name(topicName).partitions(1).replicas(1).build();
-        return client.createTopics(new ArrayList<>() {{
-            add(newTopic);
-        }});
+        CreateTopicsResult topicsResult = client.createTopics(Collections.singleton(newTopic));
+        topicsResult.all().whenComplete((result, exception) -> {
+            if (exception != null) {
+                log.error("createTopics error", exception);
+            } else {
+                log.info("createTopics success");
+            }
+        });
+        return topicsResult;
     }
 
     public static void deleteTopics(String topicName) {
-        client.deleteTopics(new ArrayList<>() {{
-            add(topicName);
-        }});
+        client.deleteTopics(Collections.singleton(topicName));
     }
 
 
-    public static void getTopics() throws ExecutionException, InterruptedException {
-        ListTopicsResult listTopicsResult = client.listTopics();
-        KafkaFuture<Map<String, TopicListing>> mapKafkaFuture = listTopicsResult.namesToListings();
-        Map<String, TopicListing> stringTopicListingMap = mapKafkaFuture.get();
-        stringTopicListingMap.forEach((k, v) -> {
-            log.info("k : " + k);
-            log.info("v : " + v);
-        });
+    public static Collection<TopicListing> getTopics() throws ExecutionException, InterruptedException {
+        Collection<TopicListing> topicListings = client.listTopics().listings().get();
+        if (topicListings == null || topicListings.isEmpty()) {
+            log.info("No topics found");
+        }else {
+            for (TopicListing topicListing : topicListings) {
+                log.info(String.valueOf(topicListing));
+            }
+        }
+
+        return topicListings;
+    }
+
+    public static void deleteAllTopics() throws ExecutionException, InterruptedException {
+        Collection<TopicListing> topics = getTopics();
+        Collection<String> topicNames = new ArrayList<>();
+        topics.stream().map(TopicListing::name).forEach(topicNames::add);
+        DeleteTopicsResult deleteTopicsResult = client.deleteTopics(topicNames);
     }
 
 }

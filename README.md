@@ -19,7 +19,7 @@ KAFKA를 이용한 JAVA기반의 웹채팅 애플리케이션으로 다음 기�
  
 ```
 
-<img src="./screenshot/loginpage.png" style="width: 500px; height: auto;" alt="">
+<img src="./screenshot/loginpage.png" style="width: 350px; height: auto;" alt="">
 
 This application uses the following tools:
 
@@ -60,16 +60,15 @@ This application uses the following tools:
   - DB 연동 및 테스트
   - DB properties secret 처리
   - indexing
-  
----
-
-### 3. TODO
-
 * chatRooms
   - chatRoom list layout: chat 목록 나열, chatRoom 생성 버튼 및 팝업
   - chatRooms 화면 기능 구현 : chatRooms 가져오기
     - chatRoom 생성
     - chatRoom 진입
+  
+---
+
+### 3. TODO
  
 * chatRomm
   - chatRoom layout: chatRoom title, chatRoom 입장자 목록, chatRoom 채팅창, chatRoom 채팅 입력창, chatRoom 나가기 버튼, chat Message layout

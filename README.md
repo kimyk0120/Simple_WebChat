@@ -59,12 +59,13 @@ This application uses the following tools:
   - MongoDB svr 설치 및 설정
   - DB 연동 및 테스트
   - DB properties secret 처리
-
+  - indexing
+  
 ---
 
 ### 3. TODO
 
-* DB 인덱싱
+ 
 * chatRomm
   - chatRoom layout: chatRoom title, chatRoom 입장자 목록, chatRoom 채팅창, chatRoom 채팅 입력창, chatRoom 나가기 버튼, chat Message layout
   - chatRoom 기능 구현

@@ -1,6 +1,6 @@
 package com.toypwebchat.toyp_webchat.webchat.service;
 
-import com.toypwebchat.toyp_webchat.kafka.KafkaAdminClient;
+import com.toypwebchat.toyp_webchat.kafka.admiinClient.KafkaAdminClient;
 import com.toypwebchat.toyp_webchat.webchat.model.Room;
 import com.toypwebchat.toyp_webchat.webchat.repository.RoomRepository;
 import lombok.extern.slf4j.Slf4j;

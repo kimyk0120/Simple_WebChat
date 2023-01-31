@@ -1,6 +1,8 @@
-package com.toypwebchat.toyp_webchat.kafka;
+package com.toypwebchat.toyp_webchat.kafka.controller;
 
 
+import com.toypwebchat.toyp_webchat.kafka.admiinClient.KafkaAdminClient;
+import com.toypwebchat.toyp_webchat.kafka.producer.KafkaProducer;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
@@ -56,6 +58,12 @@ public class KafkaController {
     public String close() {
         KafkaAdminClient.close();
         return "success close";
+    }
+
+    @GetMapping(value = "/dynamic-comsumer")
+    public String dynamicComsumer() {
+        KafkaAdminClient.dynamicComsumer();
+        return "dynamicComsumer";
     }
 
 }

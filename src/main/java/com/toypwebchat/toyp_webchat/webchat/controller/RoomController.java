@@ -36,18 +36,6 @@ public class RoomController {
     }
 
     /***
-     * 채팅방 페이지 VIEW
-     * @param request
-     * @return
-     */
-    @GetMapping("/room/{roomId}")
-    public String chatRoom(HttpServletRequest request, @PathVariable String roomId){
-        log.info("roomId: {}", roomId);
-        return "content/chatRoom";
-    }
-
-
-    /***
      * 채팅방 목록 조회
      * @param request
      * @return
@@ -69,5 +57,15 @@ public class RoomController {
         return ResponseEntity.status(HttpStatus.OK).body(new CommonResponse<>(room));
     }
 
+    /***
+     * 채팅방 페이지 VIEW
+     * @param request
+     * @return
+     */
+    @GetMapping("/room/{roomId}")
+    public String chatRoom(HttpServletRequest request, @PathVariable String roomId){
+        log.info("roomId: {}", roomId);
+        return "content/chatRoom";
+    }
 
 }//.class

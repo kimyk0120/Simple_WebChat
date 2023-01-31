@@ -1,4 +1,4 @@
-package com.toypwebchat.toyp_webchat.kafka;
+package com.toypwebchat.toyp_webchat.kafka.consumer;
 
 import org.springframework.stereotype.Service;
 

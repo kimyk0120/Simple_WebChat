@@ -1,8 +1,9 @@
-package com.toypwebchat.toyp_webchat.kafka;
+package com.toypwebchat.toyp_webchat.kafka.admiinClient;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.admin.*;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.kafka.config.KafkaListenerEndpointRegistry;
 import org.springframework.kafka.config.TopicBuilder;
 import org.springframework.stereotype.Component;
 
@@ -25,7 +26,6 @@ public class KafkaAdminClient {
     public static DescribeTopicsResult describeTopics(String topicName) {
         return client.describeTopics(Collections.singleton(topicName));
     }
-
 
 
     @Value("${spring.kafka.bootstrap-servers}")
@@ -85,6 +85,12 @@ public class KafkaAdminClient {
         Collection<String> topicNames = new ArrayList<>();
         topics.stream().map(TopicListing::name).forEach(topicNames::add);
         DeleteTopicsResult deleteTopicsResult = client.deleteTopics(topicNames);
+    }
+
+
+    public static void dynamicComsumer() {
+        KafkaListenerEndpointRegistry registry = new KafkaListenerEndpointRegistry();
+
     }
 
 }

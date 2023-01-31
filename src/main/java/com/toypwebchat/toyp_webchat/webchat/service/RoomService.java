@@ -1,11 +1,15 @@
 package com.toypwebchat.toyp_webchat.webchat.service;
 
+import com.toypwebchat.toyp_webchat.kafka.KafkaAdminClient;
 import com.toypwebchat.toyp_webchat.webchat.model.Room;
 import com.toypwebchat.toyp_webchat.webchat.repository.RoomRepository;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.kafka.clients.admin.CreateTopicsResult;
+import org.apache.kafka.common.KafkaFuture;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @Slf4j
@@ -13,13 +17,34 @@ public class RoomService {
 
     private final RoomRepository roomRepository;
 
-    public RoomService(RoomRepository roomRepository) {
+    public RoomService(RoomRepository roomRepository, KafkaAdminClient kafkaAdminClient) {
         this.roomRepository = roomRepository;
     }
 
-    public void createRoom(Room room) {
+    public Room createRoom(String roomName) {
+        String topicName = UUID.randomUUID().toString();
+        String roomId = UUID.randomUUID().toString();
+        CreateTopicsResult topicResult = KafkaAdminClient.createTopics(topicName);
+        try {
+            KafkaFuture<Void> future = topicResult.all();
+            future.get();
+            Room room = new Room();
+            room.setRoomId(roomId);
+            room.setRoomName(roomName);
+            room.setTopicName(topicName);
+            roomRepository.save(room);
+            return room;
+        } catch (Exception e) {
+            log.error("Error while creating room", e);
+        }
+        return null;
+    }
+
+    public void saveRoom(Room room) {
+
         roomRepository.save(room);
     }
+
 
     public List<Room> getRooms() {
         return roomRepository.findAll();

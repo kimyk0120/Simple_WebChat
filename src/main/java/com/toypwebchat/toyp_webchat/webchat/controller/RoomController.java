@@ -1,19 +1,18 @@
 package com.toypwebchat.toyp_webchat.webchat.controller;
 
 import com.toypwebchat.toyp_webchat.webchat.common.dto.BasicResponse;
+import com.toypwebchat.toyp_webchat.webchat.common.dto.CommonResponse;
 import com.toypwebchat.toyp_webchat.webchat.model.Room;
 import com.toypwebchat.toyp_webchat.webchat.service.RoomService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import java.util.Map;
 
 @Slf4j
 @Controller
@@ -41,8 +40,9 @@ public class RoomController {
      * @param request
      * @return
      */
-    @GetMapping("/room")
-    public String chatRoom(HttpServletRequest request) {
+    @GetMapping("/room/{roomId}")
+    public String chatRoom(HttpServletRequest request, @PathVariable String roomId){
+        log.info("roomId: {}", roomId);
         return "content/chatRoom";
     }
 
@@ -64,8 +64,9 @@ public class RoomController {
      * @return
      */
     @PostMapping("/createRoom")
-    public @ResponseBody ResponseEntity<? extends BasicResponse> createRoom(HttpServletRequest request) {
-        return ResponseEntity.status(HttpStatus.OK).body(null);
+    public @ResponseBody ResponseEntity<? extends BasicResponse> createRoom(HttpServletRequest request, @RequestBody Map<String, String> roomName) {
+        Room room = roomService.createRoom(roomName.get("roomName"));
+        return ResponseEntity.status(HttpStatus.OK).body(new CommonResponse<>(room));
     }
 
 

@@ -67,7 +67,7 @@
                     chatRoomListContainer.append(makeNoRoomLi());
                 } else {
                     resData.forEach(function (item) {
-                        let name = item.name;
+                        let name = item.roomName;
                         let createdAt = new Date(item.createdAt).toLocaleString();
                         let roomId = item.roomId;
                         chatRoomListContainer.appendChild(makeChatListLi(name, createdAt, roomId, enterRoom));
@@ -87,10 +87,12 @@
                 return;
             }
             axios.post(location.href + '/createRoom', {
-                name: roomName
+                roomName: roomName
             })
                 .then(function (response) {
                     console.log(response);
+
+                    //location.href = "/chatRooms/room/" + response.data.roomId;
                 })
                 .catch(function (error) {
                     showToast("Room creation failed.", "error");

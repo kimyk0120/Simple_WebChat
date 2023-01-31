@@ -8,11 +8,10 @@ import org.springframework.kafka.config.TopicBuilder;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.Properties;
+import java.util.*;
 import java.util.concurrent.ExecutionException;
 
+@SuppressWarnings("DuplicatedCode")
 @Slf4j
 @Component
 public class KafkaAdminClient {
@@ -20,6 +19,20 @@ public class KafkaAdminClient {
     private static String BOOTSTRAP_SERVER;
 
     private static AdminClient client;
+
+    public static DescribeTopicsResult describeTopics(String topicName) {
+        return client.describeTopics(Collections.singleton(topicName));
+    }
+
+    public static void deleteAllTopics() throws ExecutionException, InterruptedException {
+        ListTopicsResult listTopicsResult = client.listTopics();
+        KafkaFuture<Map<String, TopicListing>> mapKafkaFuture = listTopicsResult.namesToListings();
+        Map<String, TopicListing> stringTopicListingMap = mapKafkaFuture.get();
+        Collection<TopicListing> values = stringTopicListingMap.values();
+        Collection<String> topicNames = new ArrayList<>();
+        values.stream().map(TopicListing::name).forEach(topicNames::add);
+        DeleteTopicsResult deleteTopicsResult = client.deleteTopics(topicNames);
+    }
 
     @Value("${spring.kafka.bootstrap-servers}")
     public void setBootstrapServer(String bootstrapServer) {
@@ -42,9 +55,9 @@ public class KafkaAdminClient {
         }
     }
 
-    public static void createTopics(String topicName) {
+    public static CreateTopicsResult createTopics(String topicName) {
         NewTopic newTopic = TopicBuilder.name(topicName).partitions(1).replicas(1).build();
-        client.createTopics(new ArrayList<>() {{
+        return client.createTopics(new ArrayList<>() {{
             add(newTopic);
         }});
     }

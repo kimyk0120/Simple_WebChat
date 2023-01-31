@@ -14,17 +14,19 @@ import java.util.Date;
 public class Room {
 
     private String roomId;
-    private String name;
+    private String roomName;
 
-    private Topic topic;
+    private String topicName;
+
+    private int userCount = 0;
 
     private Date createdAt = new Date(System.currentTimeMillis());
     private Date updatedAt = new Date(System.currentTimeMillis());
 
-    public Room(String roomId, String name, Topic topic) {
+    public Room(String roomId, String roomName, String topicName) {
         this.roomId = roomId;
-        this.name = name;
-        this.topic = topic;
+        this.roomName = roomName;
+        this.topicName = topicName;
     }
 
 }

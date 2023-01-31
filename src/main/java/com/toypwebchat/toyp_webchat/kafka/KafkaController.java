@@ -33,11 +33,18 @@ public class KafkaController {
         return "success createTopic";
     }
 
-    @GetMapping(value = "/delete-topics")
-    public String deleteTopic() {
-        KafkaAdminClient.deleteTopics("test3");
+    @GetMapping(value = "/delete-topics/{topicName}")
+    public String deleteTopic(@PathVariable String topicName) {
+        KafkaAdminClient.deleteTopics(topicName);
         return "success deleteTopic";
     }
+
+    @GetMapping(value = "/delete-all-topics")
+    public String deleteAllTopic() throws ExecutionException, InterruptedException {
+        KafkaAdminClient.deleteAllTopics();
+        return "success deleteAllTopic";
+    }
+
 
     @GetMapping(value = "/get-topics")
     public String getTopic() throws ExecutionException, InterruptedException {

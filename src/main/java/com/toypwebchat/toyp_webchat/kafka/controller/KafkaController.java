@@ -22,9 +22,7 @@ public class KafkaController {
 
     @PostMapping
     public String sendMessage(@RequestParam("topicname") String topicname , @RequestParam("message") String message) {
-
         this.producer.sendMessage(topicname, message);
-
         return "success";
     }
 

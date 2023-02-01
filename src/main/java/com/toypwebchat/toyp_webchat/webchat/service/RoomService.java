@@ -4,8 +4,6 @@ import com.toypwebchat.toyp_webchat.kafka.admiinClient.KafkaAdminClient;
 import com.toypwebchat.toyp_webchat.webchat.model.Room;
 import com.toypwebchat.toyp_webchat.webchat.repository.RoomRepository;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.kafka.clients.admin.CreateTopicsResult;
-import org.apache.kafka.common.KafkaFuture;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,16 +20,11 @@ public class RoomService {
     }
 
     public Room createRoom(String roomName) {
-        String topicName = UUID.randomUUID().toString();
         String roomId = UUID.randomUUID().toString();
-        CreateTopicsResult topicResult = KafkaAdminClient.createTopics(topicName);
         try {
-            KafkaFuture<Void> future = topicResult.all();
-            future.get();
             Room room = new Room();
             room.setRoomId(roomId);
             room.setRoomName(roomName);
-            room.setTopicName(topicName);
             roomRepository.save(room);
             return room;
         } catch (Exception e) {

@@ -77,7 +77,7 @@ This application uses the following tools:
     - chatRoom 나가기
     - chatRoom 채팅 입력
     - chatRoom 채팅 메시지 수신
-    - chatRoom 채팅 메시지 전송**
+    - chatRoom 채팅 메시지 전송
  
 * 카프카 구현 시나리오 
   1. ~~topic을 room으로 생성하고 user 진입시 해당 topic에 user를 동적 consumer로 추가하여 컨슈밍하게함~~ 

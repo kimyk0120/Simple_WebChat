@@ -41,8 +41,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="mqkeRoomOk">Ok</button>
+                    <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal" id="makeRoomCancelBtn">Close</button>
+                    <button type="button" class="btn btn-primary" id="makeRoomOk">Ok</button>
                 </div>
             </div>
         </div>
@@ -56,7 +56,8 @@
         let userCookieId = getCookie("userId");
         console.log(userCookieId);
         const chatRoomListContainer = document.getElementById("chatRoomListContainer");
-        const mqkeRoomOk = document.getElementById("mqkeRoomOk");
+        const makeRoomOk = document.getElementById("makeRoomOk");
+        const makeRoomCancelBtn = document.getElementById("makeRoomCancelBtn");
 
         // 방 목록 가져오기
         axios.get(location.href + '/getRooms', {})
@@ -80,7 +81,7 @@
             });
 
         // 방 생성
-        mqkeRoomOk.addEventListener("click", function () {
+        makeRoomOk.addEventListener("click", function () {
             let roomName = document.getElementById("roomName").value;
             if (roomName === "") {
                 showToast("Please enter the room name.", "warn");
@@ -92,6 +93,7 @@
                 .then(function (response) {
                     console.log("createRoom success");
                     console.log(response);
+                    cleanPop();
                     location.href = "/chatRooms/room/" + response.data.data.roomId;
                 })
                 .catch(function (error) {
@@ -103,10 +105,15 @@
 
         // 방 진입 function
         function enterRoom(callbackInfo){
-            //console.log(callbackInfo);
             let roomId = callbackInfo.querySelector("a").getAttribute("room-id");
             console.log("roomId : " + roomId);
+            cleanPop();
+            location.href = "/chatRooms/room/" + roomId;
+        }
 
+        function cleanPop(){
+            document.getElementById("roomName").value = "";
+            makeRoomCancelBtn.click();
         }
 
 

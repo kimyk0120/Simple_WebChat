@@ -2,7 +2,7 @@
 
 
 
-## 1. Introduction
+## Introduction 
 
 ```
 KAFKA를 이용한 JAVA기반의 웹채팅 애플리케이션으로 다음 기능을 제공한다.
@@ -35,7 +35,7 @@ This application uses the following tools:
 
 ---
 
-### 2. DONE
+### DONE
 
 * 프로젝트 init
   - VCS 설정 (git)
@@ -68,7 +68,7 @@ This application uses the following tools:
   
 ---
 
-### 3. TODO
+### TODO
 
 * chatRomm
   - chatRoom layout: chatRoom title, chatRoom 입장자 목록, chatRoom 채팅창, chatRoom 채팅 입력창, chatRoom 나가기 버튼, chat Message layout
@@ -89,8 +89,6 @@ This application uses the following tools:
   3. 서버는 메세지를 카프카로 프로듀스
   4. 서버에 listener를 통해 카프카로부터 메세지 수신
   5. 서버는 메세지를 클라이언트에게 소켓을 통해 전송
-  
-
 
 * chatRoom 삭제 로직
   - 방 접속 인원이 0명이면 삭제
@@ -101,14 +99,12 @@ This application uses the following tools:
 
 * ApplicationContext - ApplicationEvent 검토 및 활용 범위 검토  
 * websocket, STOMP 검토
-* KAFKA TOPIC, PARTITION 검토 
-  - room 단위는 어떻게 처리할까?
 
 
 
 ---
 
-### 4. ERROR HANDLING
+### ERROR HANDLING
 
 * error: invalid source release: 17
   - [PROJECT] build.gradle > sourceCompatibility = 11
@@ -126,7 +122,7 @@ This application uses the following tools:
 
 ---
 
-### 5. REFERENCE & TIPS
+### REFERENCE & TIPS
 
 * fire wall CMD: iptables -I INPUT 1 -p tcp --dport 8080 -j ACCEPT
 * MDB : https://mdbootstrap.com/docs/standard/getting-started/installation/ 
@@ -138,3 +134,7 @@ This application uses the following tools:
 * Dynamic Kafka consumer : https://github.com/zulffaza/Dynamic-Kafka-Consumer, https://medium.com/bliblidotcom-techblog/dynamic-spring-boot-kafka-consumer-af8740f2c703 
 
 
+--- 
+
+### Limitation & Future Work
+* 다중 카프카 서버 구성 및 설정 (현재는 단일 서버 구성)

@@ -92,7 +92,7 @@
                 .then(function (response) {
                     console.log("createRoom success");
                     console.log(response);
-                    location.href = "/chatRooms/room/" + response.data.roomId;
+                    location.href = "/chatRooms/room/" + response.data.data.roomId;
                 })
                 .catch(function (error) {
                     showToast("Room creation failed.", "error");

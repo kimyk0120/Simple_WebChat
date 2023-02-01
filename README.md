@@ -69,6 +69,15 @@ This application uses the following tools:
 ---
 
 ### 3. TODO
+
+* chatRomm
+  - chatRoom layout: chatRoom title, chatRoom 입장자 목록, chatRoom 채팅창, chatRoom 채팅 입력창, chatRoom 나가기 버튼, chat Message layout
+  - chatRoom 기능 구현
+    - chatRoom 입장
+    - chatRoom 나가기
+    - chatRoom 채팅 입력
+    - chatRoom 채팅 메시지 수신
+    - chatRoom 채팅 메시지 전송**
  
 * 카프카 구현 시나리오 
   1. ~~topic을 room으로 생성하고 user 진입시 해당 topic에 user를 동적 consumer로 추가하여 컨슈밍하게함~~ 
@@ -81,14 +90,7 @@ This application uses the following tools:
   4. 서버에 listener를 통해 카프카로부터 메세지 수신
   5. 서버는 메세지를 클라이언트에게 소켓을 통해 전송
   
-* chatRomm
-  - chatRoom layout: chatRoom title, chatRoom 입장자 목록, chatRoom 채팅창, chatRoom 채팅 입력창, chatRoom 나가기 버튼, chat Message layout
-  - chatRoom 기능 구현
-    - chatRoom 입장
-    - chatRoom 나가기
-    - chatRoom 채팅 입력
-    - chatRoom 채팅 메시지 수신
-    - chatRoom 채팅 메시지 전송**
+
 
 * chatRoom 삭제 로직
   - 방 접속 인원이 0명이면 삭제

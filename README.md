@@ -70,10 +70,9 @@ This application uses the following tools:
 
 ### 3. TODO
  
-* 챗-카프카 구현 시나리오 
-  1. topic을 room으로 생성하고 user 진입시 해당 topic에 user를 동적 consumer로 추가하여 컨슈밍하게함
-     - 동적 컨슈머 추가 테스트  (매우 복잡..ㅜ)
-  2. topic은 하나로 하되 roomID를 key로 하여 메시지를 보내고, 해당 roomID를 가진 consumer만 메시지를 수신하게함 (심플해보임)
+* 카프카 구현 시나리오 
+  1. ~~topic을 room으로 생성하고 user 진입시 해당 topic에 user를 동적 consumer로 추가하여 컨슈밍하게함~~ 
+  2. roomID를 key로 하여 메시지를 보내고, 해당 roomID를 가진 room에서 메시지를 수신 
 
 * client-server 구현 시나리오
   1. client는 서버에 websocket을 통해 접속
@@ -134,6 +133,6 @@ This application uses the following tools:
 * MongoDb : https://www.infracody.com/2022/05/install-mongodb-on-centos-7.html
 * Kafka Topic Naming Convention : https://data-engineer-tech.tistory.com/36
 * mongodb conf path : /etc/mongod.conf
-* Dynamic Kafka consumer : https://medium.com/bliblidotcom-techblog/dynamic-spring-boot-kafka-consumer-af8740f2c703 
+* Dynamic Kafka consumer : https://github.com/zulffaza/Dynamic-Kafka-Consumer, https://medium.com/bliblidotcom-techblog/dynamic-spring-boot-kafka-consumer-af8740f2c703 
 
 

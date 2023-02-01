@@ -21,17 +21,17 @@ public class KafkaController {
 
 
     @PostMapping
-    public String sendMessage(@RequestParam("message") String message) {
+    public String sendMessage(@RequestParam("topicname") String topicname , @RequestParam("message") String message) {
 
-        this.producer.sendMessage(message);
+        this.producer.sendMessage(topicname, message);
 
         return "success";
     }
 
 
-    @GetMapping(value = "/create-topics")
-    public String createTopic() {
-        KafkaAdminClient.createTopics("test2");
+    @GetMapping(value = "/create-topic/{topicNm}")
+    public String createTopic(@PathVariable String topicNm) {
+        KafkaAdminClient.createTopics(topicNm);
         return "success createTopic";
     }
 

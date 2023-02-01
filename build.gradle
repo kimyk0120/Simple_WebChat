@@ -31,6 +31,7 @@ dependencies {
 
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
+    annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
 
     // modelMapper
     implementation 'org.modelmapper:modelmapper:3.0.0'

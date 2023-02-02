@@ -71,7 +71,7 @@ This application uses the following tools:
 ### TODO
 
 * chatRomm
-  - chatRoom layout: chatRoom title, chatRoom 입장자 목록, chatRoom 채팅창, chatRoom 채팅 입력창, chatRoom 나가기 버튼, chat Message layout
+  - chatRoom layout: chatRoom title, chatRoom 채팅창, chatRoom 채팅 입력창, chatRoom 나가기 버튼, chat Message layout
   - chatRoom 기능 구현
     - chatRoom 입장
     - chatRoom 나가기
@@ -138,3 +138,4 @@ This application uses the following tools:
 
 ### Limitation & Future Work
 * 다중 카프카 서버 구성 및 설정 (현재는 단일 서버 구성)
+* 개인 profile 사진 AI 생성 from Text or image 

@@ -13,7 +13,8 @@ import java.util.Date;
 @Document(collection = "message")
 public class Message {
     private String message;
-    private String sender;
+    private String senderId;
+    private String senderName;
     private String roomId;
     private Date time = new Date(System.currentTimeMillis());
 }

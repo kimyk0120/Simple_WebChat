@@ -97,6 +97,10 @@ This application uses the following tools:
     - 페이지 이동 시 마다? : unload
     - 웹소켓 연결을 끊을때 마다? 
 
+* Interceptor
+  - 로그인 여부 확인
+  - 로그인 여부에 따라 페이지 이동
+  - 로그인 여부에 따라 API 접근 제한
 * ApplicationContext - ApplicationEvent 검토 및 활용 범위 검토  
 * websocket, STOMP 검토
 

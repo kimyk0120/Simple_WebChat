@@ -125,9 +125,14 @@
 
 </th:block>
 
+<th:block layout:fragment="addJslib">
+    <script src="/libs/sockjs-client-1.6.1/dist/sockjs.min.js"></script>
+    <script src="/libs/stomp-websocket-2.3.4/lib/stomp.min.js"></script>
+</th:block>
+
 <th:block layout:fragment="js">
     <script>
-
+        console.log("JS-1");
     </script>
 </th:block>
 

@@ -3,7 +3,6 @@ package com.toypwebchat.toyp_webchat.kafka.admiinClient;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.admin.*;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.kafka.config.KafkaListenerEndpointRegistry;
 import org.springframework.kafka.config.TopicBuilder;
 import org.springframework.stereotype.Component;
 
@@ -88,9 +87,5 @@ public class KafkaAdminClient {
     }
 
 
-    public static void dynamicComsumer() {
-        KafkaListenerEndpointRegistry registry = new KafkaListenerEndpointRegistry();
-
-    }
 
 }

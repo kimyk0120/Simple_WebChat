@@ -58,10 +58,5 @@ public class KafkaController {
         return "success close";
     }
 
-    @GetMapping(value = "/dynamic-comsumer")
-    public String dynamicComsumer() {
-        KafkaAdminClient.dynamicComsumer();
-        return "dynamicComsumer";
-    }
 
 }

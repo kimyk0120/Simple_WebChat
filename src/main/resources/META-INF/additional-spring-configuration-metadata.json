@@ -4,5 +4,10 @@
       "name": "spring.devtools.livereload.enabled",
       "type": "java.lang.String",
       "description": "Description for spring.devtools.livereload.enabled."
-  }
-] }
+    },
+    {
+      "name": "topic-name",
+      "type": "java.lang.String",
+      "description": "Description for topic-name."
+    }
+  ] }

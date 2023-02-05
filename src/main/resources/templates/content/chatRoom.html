@@ -132,7 +132,24 @@
 
 <th:block layout:fragment="js">
     <script>
-        console.log("JS-1");
+        const wsUrl = window.location.origin + "/websocket";
+        wsConnect();
+
+        function wsConnect() {
+            const socket = new SockJS(wsUrl);
+            const stompClient = Stomp.over(socket);
+            stompClient.connect({}, function (frame) {
+                console.log('Connected: ' + frame);
+                // stompClient.subscribe('/topic/greetings', function (greeting) {
+                //     onMessage(JSON.parse(greeting.body).content);
+                // });
+                // stompClient.subscribe('/subscribe/notice' + document.getElementById("textRoom").value, function (message) {
+                //     onMessage(message.body);
+                // });
+
+            });
+        }
+
     </script>
 </th:block>
 

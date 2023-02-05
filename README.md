@@ -72,9 +72,9 @@ This application uses the following tools:
 
 * client-server 구현 시나리오
   1. client는 서버에 websocket을 통해 접속
-  2. websocket을 통해 서버에 메세지 전송
+  2. websocket을 통해 서버에 메세지 전송 (or 메세지 송신만 HTTP)
   3. 서버는 메세지를 카프카로 프로듀스
-  4. 서버에 listener를 통해 카프카로부터 메세지 수신
+  4. 서버에 listener를 통해 카프카로부터 메세지 수신 
   5. 서버는 메세지를 클라이언트에게 소켓을 통해 전송
 
 * 카프카 구현 시나리오

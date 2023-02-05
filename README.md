@@ -108,7 +108,7 @@ This application uses the following tools:
 
 ---
 
-### ERROR HANDLING
+### Trouble Shooting
 
 * error: invalid source release: 17
   - [PROJECT] build.gradle > sourceCompatibility = 11
@@ -122,7 +122,7 @@ This application uses the following tools:
 * thymeleaf : template might not exist ..... 
   - templates의 상대경로로 잡아줘야함  /layout/default_layout.html > layout/default_layout.html
   - https://jamong-icetea.tistory.com/190
-  
+*  Springboot CORS : https://kim6394.tistory.com/273
 
 ---
 

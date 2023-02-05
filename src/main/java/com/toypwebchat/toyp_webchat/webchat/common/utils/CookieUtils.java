@@ -9,7 +9,7 @@ public class CookieUtils {
         Cookie cookie = new Cookie(name, value);
         cookie.setDomain(request.getRequestURI().replace(request.getRequestURI(), ""));
         cookie.setPath("/");
-        cookie.setMaxAge(60 * 10);
+        cookie.setMaxAge(-1);
         return cookie;
     }
 

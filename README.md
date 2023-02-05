@@ -65,10 +65,16 @@ This application uses the following tools:
   - chatRooms 화면 기능 구현 : chatRooms 가져오기
     - chatRoom 생성
     - chatRoom 진입
-  
+* 카프카 구현 시나리오
+  1. ~~topic을 room으로 생성하고 user 진입시 해당 topic에 user를 동적 consumer로 추가하여 컨슈밍하게함~~
+  2. roomID를 key로 하여 메시지를 보내고, 해당 roomID를 가진 room에서 메시지를 수신  
+
 ---
 
 ### TODO
+
+* websocket, STOMP 검토
+* ApplicationContext - ApplicationEvent 검토 및 활용 범위 검토
 
 * client-server 구현 시나리오
   1. client는 서버에 websocket을 통해 접속
@@ -77,9 +83,6 @@ This application uses the following tools:
   4. 서버에 listener를 통해 카프카로부터 메세지 수신 
   5. 서버는 메세지를 클라이언트에게 소켓을 통해 전송
 
-* 카프카 구현 시나리오
-  1. ~~topic을 room으로 생성하고 user 진입시 해당 topic에 user를 동적 consumer로 추가하여 컨슈밍하게함~~
-  2. roomID를 key로 하여 메시지를 보내고, 해당 roomID를 가진 room에서 메시지를 수신
 
 * chatRomm
   - chatRoom layout: chatRoom title, chatRoom 채팅창, chatRoom 채팅 입력창, chatRoom 나가기 버튼, chat Message layout
@@ -101,8 +104,8 @@ This application uses the following tools:
   - 로그인 여부 확인
   - 로그인 여부에 따라 페이지 이동
   - 로그인 여부에 따라 API 접근 제한
-* ApplicationContext - ApplicationEvent 검토 및 활용 범위 검토  
-* websocket, STOMP 검토
+  
+
 
 
 

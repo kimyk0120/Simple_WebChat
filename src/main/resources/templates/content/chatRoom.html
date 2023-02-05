@@ -144,24 +144,29 @@
 
 <th:block layout:fragment="js">
     <script>
-        const roomId = '35a06ec0-6f36-4be1-9f2e-956245c81188';
+
+        const pathArray = window.location.pathname.split('/');
+        const roomId = pathArray[3];
+        const userCookieId = getCookie("userId");
+        console.log("roomId : " + roomId);
+        console.log("userCookieId : " + userCookieId);
 
         wsConnect();
 
         function wsConnect() {
-            var sock = new SockJS("/stomp-chat");
-            var client = Stomp.over(sock); // 1. SockJS를 내부에 들고 있는 client를 내어준다.
+            const sock = new SockJS("/stomp-chat");
+            const client = Stomp.over(sock); // 1. SockJS를 내부에 들고 있는 client를 내어준다.
 
             // 2. connection이 맺어지면 실행된다.
             client.connect({}, function () {
 
                 // 3. send(path, header, message)로 메시지를 보낼 수 있다.
-                client.send('/publish/chat/join', {}, JSON.stringify({roomId: roomId, senderName: "Testmem"}));
+                client.send('/publish/chat/join', {}, JSON.stringify({roomId: roomId, senderId: userCookieId}));
 
                 // 4. subscribe(path, callback)로 메시지를 받을 수 있다. callback 첫번째 파라미터의 body로 메시지의 내용이 들어온다.
                 client.subscribe('/subscribe/chat/room/' + roomId, function (chat) {
                     console.log("subscribe chat : " + chat.body);
-                    var content = JSON.parse(chat.body);
+                    let content = JSON.parse(chat.body);
                     //chatBox.append('<li>' + content.message + '(' + content.writer + ')</li>')
                 });
             });

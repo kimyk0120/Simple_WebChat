@@ -20,7 +20,7 @@ public class ChatController {
     @MessageMapping("/chat/join")
     public void join(ChatMessage message) {
         log.info("MessageMapping /chat/join");
-        message.setMessage(message.getSenderName() + "님이 입장하셨습니다.");
+        message.setMessage(message.getSenderId() + "님이 입장하셨습니다.");
         template.convertAndSend("/subscribe/chat/room/" + message.getRoomId(), message);
     }
 

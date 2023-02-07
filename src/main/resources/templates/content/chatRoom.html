@@ -123,9 +123,9 @@
 
                         </div>
                         <div class="card-footer text-muted d-flex justify-content-start align-items-center p-3">
-                            <input type="text" class="form-control form-control-lg" id="exampleFormControlInput1"
+                            <input type="text" class="form-control form-control-lg" id="messageInput"
                                    placeholder="Type message">
-                            <a class="ms-3" href="#!"><i class="fas fa-paper-plane"></i></a>
+                            <a class="ms-3" style="cursor: pointer;" id="messageSend"><i class="fas fa-paper-plane"></i></a>
                         </div>
                     </div>
 
@@ -148,8 +148,12 @@
         const pathArray = window.location.pathname.split('/');
         const roomId = pathArray[3];
         const userCookieId = getCookie("userId");
+        const messageSendBtn = document.getElementById("messageSend");
+        const messageInput = document.getElementById("messageInput");
+
         console.log("roomId : " + roomId);
         console.log("userCookieId : " + userCookieId);
+        console.log(messageSendBtn);
 
         wsConnect();
 
@@ -171,13 +175,13 @@
                 });
             });
 
-            // sendBtn.click(function () {
-            //     var message = messageInput.val();
-            //     client.send('/publish/chat/message', {}, JSON.stringify({chatRoomId: roomId, message: message, writer: member}));
-            //     messageInput.val('');
-            // });
+            messageSendBtn.addEventListener("click", function () {
+                let message = messageInput.value;
+                if (message === "") {return;}
+                console.log(message);
+                client.send('/publish/chat/message', {}, JSON.stringify({roomId: roomId, message: message, senderId: userCookieId}));
+            });
         }
-
     </script>
 </th:block>
 

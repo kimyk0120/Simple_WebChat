@@ -2,32 +2,32 @@ package com.toypwebchat.toyp_webchat.webchat.controller;
 
 
 import com.toypwebchat.toyp_webchat.webchat.model.ChatMessage;
+import com.toypwebchat.toyp_webchat.webchat.service.ChatService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.messaging.handler.annotation.MessageMapping;
-import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Controller;
 
 @Slf4j
 @Controller
 public class ChatController {
 
-    private final SimpMessagingTemplate template;
+    private final ChatService chatService;
 
-    public ChatController(SimpMessagingTemplate template) {
-        this.template = template;
+    public ChatController(ChatService chatService) {
+        this.chatService = chatService;
     }
 
     @MessageMapping("/chat/join")
     public void join(ChatMessage message) {
         log.info("MessageMapping /chat/join");
         message.setMessage(message.getSenderId() + "님이 입장하셨습니다.");
-        template.convertAndSend("/subscribe/chat/room/" + message.getRoomId(), message);
+        chatService.sendMessage(message);
     }
 
     @MessageMapping("/chat/message")
     public void message(ChatMessage message) {
         log.info("MessageMapping /chat/message");
-        template.convertAndSend("/subscribe/chat/room/" + message.getRoomId(), message);
+        chatService.sendMessage(message);
     }
 
 }

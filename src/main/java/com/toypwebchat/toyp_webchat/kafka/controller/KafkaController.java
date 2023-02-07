@@ -2,9 +2,11 @@ package com.toypwebchat.toyp_webchat.kafka.controller;
 
 
 import com.toypwebchat.toyp_webchat.kafka.admiinClient.KafkaAdminClient;
-import com.toypwebchat.toyp_webchat.kafka.producer.KafkaProducer;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.concurrent.ExecutionException;
 
@@ -12,19 +14,6 @@ import java.util.concurrent.ExecutionException;
 @RestController
 @RequestMapping(value = "/kafka")
 public class KafkaController {
-
-    private final KafkaProducer producer;
-
-    public KafkaController(KafkaProducer producer) {
-        this.producer = producer;
-    }
-
-
-    @PostMapping
-    public String sendMessage(@RequestParam("topicname") String topicname , @RequestParam("message") String message) {
-        this.producer.sendMessage(topicname, message);
-        return "success";
-    }
 
 
     @GetMapping(value = "/create-topic/{topicNm}")

@@ -21,6 +21,8 @@
                         <div class="card-body" data-mdb-perfect-scrollbar="true"
                              style="position: relative; height: 55vh; overflow: scroll;">
 
+                            <p class="small p-2 rounded-3" style="color: #bbb8b8">enter message.</p>
+
                             <div class="d-flex flex-row justify-content-start">
                                 <div>test1</div>
                                 <div>
@@ -148,6 +150,7 @@
         const pathArray = window.location.pathname.split('/');
         const roomId = pathArray[3];
         const userCookieId = getCookie("userId");
+        const userName = getCookie("userName");
         const messageSendBtn = document.getElementById("messageSend");
         const messageInput = document.getElementById("messageInput");
 
@@ -162,10 +165,10 @@
             const client = Stomp.over(sock); // 1. SockJS를 내부에 들고 있는 client를 내어준다.
 
             // 2. connection이 맺어지면 실행된다.
+            //~ (void) connect(headers, connectCallback, errorCallback)
             client.connect({}, function () {
-
                 // 3. send(path, header, message)로 메시지를 보낼 수 있다.
-                client.send('/publish/chat/join', {}, JSON.stringify({roomId: roomId, senderId: userCookieId}));
+                client.send('/publish/chat/join', {}, JSON.stringify({roomId: roomId, senderId: userCookieId, type: "JOIN", senderName:userName}));
 
                 // 4. subscribe(path, callback)로 메시지를 받을 수 있다. callback 첫번째 파라미터의 body로 메시지의 내용이 들어온다.
                 client.subscribe('/subscribe/chat/room/' + roomId, function (chat) {
@@ -173,14 +176,22 @@
                     let content = JSON.parse(chat.body);
                     //chatBox.append('<li>' + content.message + '(' + content.writer + ')</li>')
                 });
+                showToast("채팅방에 입장하였습니다.", "info");
+
+                messageSendBtn.addEventListener("click", function () {
+                    let message = messageInput.value;
+                    if (message === "") {return;}
+                    //console.log(message);
+                    client.send('/publish/chat/message', {}, JSON.stringify({roomId: roomId, message: message, senderId: userCookieId, senderName: userName}));
+                    messageInput.value = "";
+                });
+
+            }, function (error) {
+                console.log("STOMP error " + error);
+                showToast("error ocurred.", "error");
             });
 
-            messageSendBtn.addEventListener("click", function () {
-                let message = messageInput.value;
-                if (message === "") {return;}
-                console.log(message);
-                client.send('/publish/chat/message', {}, JSON.stringify({roomId: roomId, message: message, senderId: userCookieId}));
-            });
+
         }
     </script>
 </th:block>

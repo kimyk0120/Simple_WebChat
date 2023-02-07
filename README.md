@@ -105,10 +105,7 @@ This application uses the following tools:
   - 로그인 여부에 따라 페이지 이동
   - 로그인 여부에 따라 API 접근 제한
   
-
-
-
-
+  
 ---
 
 ### Trouble Shooting
@@ -146,3 +143,5 @@ This application uses the following tools:
 ### Limitation & Future Work
 * 다중 카프카 서버 구성 및 설정 (현재는 단일 서버 구성)
 * 개인 profile 사진 AI 생성 from Text or image 
+* React 적용 
+* 모바일 확장 

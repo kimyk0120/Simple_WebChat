@@ -12,6 +12,9 @@ import java.util.Date;
 @NoArgsConstructor
 @Document(collection = "message")
 public class ChatMessage {
+
+    private MessageType type;
+
     private String message;
     private String senderId;
     private String senderName;

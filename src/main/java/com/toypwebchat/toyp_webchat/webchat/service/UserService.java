@@ -24,6 +24,7 @@ public class UserService {
     public void setSessionAndCookie(HttpServletRequest request, HttpServletResponse response, User user) {
         SessionUtils.createSession("userId", user.getUserId(), request);
         response.addCookie(CookieUtils.createCookie("userId", user.getUserId(), request));
+        response.addCookie(CookieUtils.createCookie("userName", user.getUserName(), request));
     }
 
     public void saveUser(User user) {

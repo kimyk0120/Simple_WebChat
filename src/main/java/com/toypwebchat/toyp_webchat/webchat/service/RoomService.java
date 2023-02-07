@@ -6,7 +6,9 @@ import com.toypwebchat.toyp_webchat.webchat.repository.RoomRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -44,16 +46,23 @@ public class RoomService {
     }
 
     public Room getRoom(String roomId) {
-        return roomRepository.findById(roomId).orElse(null);
+        return roomRepository.findById(roomId).get();
     }
 
     public void updateRoom(Room room) {
         roomRepository.save(room);
     }
+
     public void deleteRoom(String roomId) {
         roomRepository.deleteById(roomId);
     }
 
-
-
+    public Room joinRoom(String roomId) {
+        Optional<Room> byId = roomRepository.findById(roomId);
+        Room room = byId.get();
+        room.setUserCount(room.getUserCount() + 1);
+        room.setUpdatedAt(new Date(System.currentTimeMillis()));
+        roomRepository.save(room);
+        return room;
+    }
 }//.class

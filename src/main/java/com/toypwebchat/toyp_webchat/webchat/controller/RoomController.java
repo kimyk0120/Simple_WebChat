@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -63,9 +64,11 @@ public class RoomController {
      * @return
      */
     @GetMapping("/room/{roomId}")
-    public String chatRoom(HttpServletRequest request, @PathVariable String roomId){
-        log.info("roomId: {}", roomId);
-        return "content/chatRoom";
+    public ModelAndView chatRoom(HttpServletRequest request, @PathVariable String roomId, ModelAndView mv){
+        Room room = roomService.joinRoom(roomId);
+        mv.addObject("room", room);
+        mv.setViewName("content/chatRoom");
+        return mv;
     }
 
 }//.class

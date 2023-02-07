@@ -68,30 +68,28 @@ This application uses the following tools:
 * 카프카 구현 시나리오
   1. ~~topic을 room으로 생성하고 user 진입시 해당 topic에 user를 동적 consumer로 추가하여 컨슈밍하게함~~
   2. roomID를 key로 하여 메시지를 보내고, 해당 roomID를 가진 room에서 메시지를 수신  
+* websocket, STOMP 검토 및 KAFKA 연동
+* client-server 구현 시나리오
+  1. client는 서버에 websocket을 통해 접속
+  2. websocket을 통해 서버에 메세지 전송 (or 메세지 송신만 HTTP)
+  3. 서버는 메세지를 카프카로 프로듀스
+  4. 서버에 listener를 통해 카프카로부터 메세지 수신
+  5. 서버는 메세지를 클라이언트에게 소켓을 통해 전송
+
 
 ---
 
 ### TODO
 
-* websocket, STOMP 검토
-* ApplicationContext - ApplicationEvent 검토 및 활용 범위 검토
-
-* client-server 구현 시나리오
-  1. client는 서버에 websocket을 통해 접속
-  2. websocket을 통해 서버에 메세지 전송 (or 메세지 송신만 HTTP)
-  3. 서버는 메세지를 카프카로 프로듀스
-  4. 서버에 listener를 통해 카프카로부터 메세지 수신 
-  5. 서버는 메세지를 클라이언트에게 소켓을 통해 전송
-
-
 * chatRomm
   - chatRoom layout: chatRoom title, chatRoom 채팅창, chatRoom 채팅 입력창, chatRoom 나가기 버튼, chat Message layout
   - chatRoom 기능 구현
     - chatRoom 입장
-    - chatRoom 나가기
     - chatRoom 채팅 입력
-    - chatRoom 채팅 메시지 수신
     - chatRoom 채팅 메시지 전송
+    - chatRoom 채팅 메시지 수신
+    - chatRoom 나가기
+    
 
 * chatRoom 삭제 로직
   - 방 접속 인원이 0명이면 삭제

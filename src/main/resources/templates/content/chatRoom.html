@@ -14,114 +14,103 @@
 
                     <div class="card" id="chat2">
                         <div class="card-header d-flex justify-content-between align-items-center p-3">
-                            <h5 class="mb-0">ROOM TITLE</h5>
-                            <button type="button" class="btn btn-primary btn-sm" data-mdb-ripple-color="dark">List
+                            <h5 class="mb-0" th:text="${room.roomName}">ROOM TITLE</h5>
+
+                            <button type="button" class="btn btn-primary btn-sm" data-mdb-ripple-color="dark" id="goList">
+                                List
                             </button>
+
                         </div>
-                        <div class="card-body" data-mdb-perfect-scrollbar="true"
+                        <div class="card-body" data-mdb-perfect-scrollbar="true" id="cardBody"
                              style="position: relative; height: 55vh; overflow: scroll;">
 
-                            <p class="small p-2 rounded-3" style="color: #bbb8b8">enter message.</p>
+<!--                            <div class="d-flex flex-row justify-content-start">-->
+<!--                                <div>test1</div>-->
+<!--                                <div>-->
+<!--                                    <p class="small p-2 ms-3 mb-1 rounded-3" style="background-color: #f5f6f7;">Hi</p>-->
+<!--                                    <p class="small ms-3 mb-3 rounded-3 text-muted">23:58</p>-->
+<!--                                </div>-->
+<!--                            </div>-->
 
-                            <div class="d-flex flex-row justify-content-start">
-                                <div>test1</div>
-                                <div>
-                                    <p class="small p-2 ms-3 mb-1 rounded-3" style="background-color: #f5f6f7;">Hi</p>
-                                    <p class="small p-2 ms-3 mb-1 rounded-3" style="background-color: #f5f6f7;">How are
-                                        you ...???
-                                    </p>
-                                    <p class="small p-2 ms-3 mb-1 rounded-3" style="background-color: #f5f6f7;">What are
-                                        you doing
-                                        tomorrow? Can we come up a bar?</p>
-                                    <p class="small ms-3 mb-3 rounded-3 text-muted">23:58</p>
-                                </div>
-                            </div>
+<!--                            <div class="d-flex flex-row justify-content-end mb-4 pt-1">-->
+<!--                                <div>-->
+<!--                                    <p class="small p-2 me-3 mb-1 text-white rounded-3 bg-primary">Hiii, I'm good.</p>-->
+<!--                                    <p class="small me-3 mb-3 rounded-3 text-muted d-flex justify-content-end">00:06</p>-->
+<!--                                </div>-->
+<!--                                <div>test2</div>-->
+<!--                            </div>-->
 
-                            <div class="d-flex flex-row justify-content-end mb-4 pt-1">
-                                <div>
-                                    <p class="small p-2 me-3 mb-1 text-white rounded-3 bg-primary">Hiii, I'm good.</p>
-                                    <p class="small p-2 me-3 mb-1 text-white rounded-3 bg-primary">How are you
-                                        doing?</p>
-                                    <p class="small p-2 me-3 mb-1 text-white rounded-3 bg-primary">Long time no see!
-                                        Tomorrow
-                                        office. will
-                                        be free on sunday.</p>
-                                    <p class="small me-3 mb-3 rounded-3 text-muted d-flex justify-content-end">00:06</p>
-                                </div>
-                                <div>test2</div>
-                            </div>
+<!--                            <div class="d-flex flex-row justify-content-start mb-4">-->
+<!--                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3-bg.webp"-->
+<!--                                     alt="avatar 1" style="width: 45px; height: 100%;">-->
+<!--                                <div>-->
+<!--                                    <p class="small p-2 ms-3 mb-1 rounded-3" style="background-color: #f5f6f7;">Okay</p>-->
+<!--                                    <p class="small p-2 ms-3 mb-1 rounded-3" style="background-color: #f5f6f7;">We will-->
+<!--                                        go on-->
+<!--                                        Sunday?</p>-->
+<!--                                    <p class="small ms-3 mb-3 rounded-3 text-muted">00:07</p>-->
+<!--                                </div>-->
+<!--                            </div>-->
 
-                            <div class="d-flex flex-row justify-content-start mb-4">
-                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3-bg.webp"
-                                     alt="avatar 1" style="width: 45px; height: 100%;">
-                                <div>
-                                    <p class="small p-2 ms-3 mb-1 rounded-3" style="background-color: #f5f6f7;">Okay</p>
-                                    <p class="small p-2 ms-3 mb-1 rounded-3" style="background-color: #f5f6f7;">We will
-                                        go on
-                                        Sunday?</p>
-                                    <p class="small ms-3 mb-3 rounded-3 text-muted">00:07</p>
-                                </div>
-                            </div>
+<!--                            <div class="d-flex flex-row justify-content-end mb-4">-->
+<!--                                <div>-->
+<!--                                    <p class="small p-2 me-3 mb-1 text-white rounded-3 bg-primary">That's awesome!</p>-->
+<!--                                    <p class="small p-2 me-3 mb-1 text-white rounded-3 bg-primary">I will meet you-->
+<!--                                        Sandon Square-->
+<!--                                        sharp at-->
+<!--                                        10 AM</p>-->
+<!--                                    <p class="small p-2 me-3 mb-1 text-white rounded-3 bg-primary">Is that okay?</p>-->
+<!--                                    <p class="small me-3 mb-3 rounded-3 text-muted d-flex justify-content-end">00:09</p>-->
+<!--                                </div>-->
+<!--                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava4-bg.webp"-->
+<!--                                     alt="avatar 1" style="width: 45px; height: 100%;">-->
+<!--                            </div>-->
 
-                            <div class="d-flex flex-row justify-content-end mb-4">
-                                <div>
-                                    <p class="small p-2 me-3 mb-1 text-white rounded-3 bg-primary">That's awesome!</p>
-                                    <p class="small p-2 me-3 mb-1 text-white rounded-3 bg-primary">I will meet you
-                                        Sandon Square
-                                        sharp at
-                                        10 AM</p>
-                                    <p class="small p-2 me-3 mb-1 text-white rounded-3 bg-primary">Is that okay?</p>
-                                    <p class="small me-3 mb-3 rounded-3 text-muted d-flex justify-content-end">00:09</p>
-                                </div>
-                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava4-bg.webp"
-                                     alt="avatar 1" style="width: 45px; height: 100%;">
-                            </div>
+<!--                            <div class="d-flex flex-row justify-content-start mb-4">-->
+<!--                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3-bg.webp"-->
+<!--                                     alt="avatar 1" style="width: 45px; height: 100%;">-->
+<!--                                <div>-->
+<!--                                    <p class="small p-2 ms-3 mb-1 rounded-3" style="background-color: #f5f6f7;">Okay i-->
+<!--                                        will meet-->
+<!--                                        you on-->
+<!--                                        Sandon Square</p>-->
+<!--                                    <p class="small ms-3 mb-3 rounded-3 text-muted">00:11</p>-->
+<!--                                </div>-->
+<!--                            </div>-->
 
-                            <div class="d-flex flex-row justify-content-start mb-4">
-                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3-bg.webp"
-                                     alt="avatar 1" style="width: 45px; height: 100%;">
-                                <div>
-                                    <p class="small p-2 ms-3 mb-1 rounded-3" style="background-color: #f5f6f7;">Okay i
-                                        will meet
-                                        you on
-                                        Sandon Square</p>
-                                    <p class="small ms-3 mb-3 rounded-3 text-muted">00:11</p>
-                                </div>
-                            </div>
+<!--                            <div class="d-flex flex-row justify-content-end mb-4">-->
+<!--                                <div>-->
+<!--                                    <p class="small p-2 me-3 mb-1 text-white rounded-3 bg-primary">Do you have pictures-->
+<!--                                        of Matley-->
+<!--                                        Marriage?</p>-->
+<!--                                    <p class="small me-3 mb-3 rounded-3 text-muted d-flex justify-content-end">00:11</p>-->
+<!--                                </div>-->
+<!--                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava4-bg.webp"-->
+<!--                                     alt="avatar 1" style="width: 45px; height: 100%;">-->
+<!--                            </div>-->
 
-                            <div class="d-flex flex-row justify-content-end mb-4">
-                                <div>
-                                    <p class="small p-2 me-3 mb-1 text-white rounded-3 bg-primary">Do you have pictures
-                                        of Matley
-                                        Marriage?</p>
-                                    <p class="small me-3 mb-3 rounded-3 text-muted d-flex justify-content-end">00:11</p>
-                                </div>
-                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava4-bg.webp"
-                                     alt="avatar 1" style="width: 45px; height: 100%;">
-                            </div>
+<!--                            <div class="d-flex flex-row justify-content-start mb-4">-->
+<!--                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3-bg.webp"-->
+<!--                                     alt="avatar 1" style="width: 45px; height: 100%;">-->
+<!--                                <div>-->
+<!--                                    <p class="small p-2 ms-3 mb-1 rounded-3" style="background-color: #f5f6f7;">Sorry I-->
+<!--                                        don't-->
+<!--                                        have. i-->
+<!--                                        changed my phone.</p>-->
+<!--                                    <p class="small ms-3 mb-3 rounded-3 text-muted">00:13</p>-->
+<!--                                </div>-->
+<!--                            </div>-->
 
-                            <div class="d-flex flex-row justify-content-start mb-4">
-                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3-bg.webp"
-                                     alt="avatar 1" style="width: 45px; height: 100%;">
-                                <div>
-                                    <p class="small p-2 ms-3 mb-1 rounded-3" style="background-color: #f5f6f7;">Sorry I
-                                        don't
-                                        have. i
-                                        changed my phone.</p>
-                                    <p class="small ms-3 mb-3 rounded-3 text-muted">00:13</p>
-                                </div>
-                            </div>
-
-                            <div class="d-flex flex-row justify-content-end">
-                                <div>
-                                    <p class="small p-2 me-3 mb-1 text-white rounded-3 bg-primary">Okay then see you on
-                                        sunday!!
-                                    </p>
-                                    <p class="small me-3 mb-3 rounded-3 text-muted d-flex justify-content-end">00:15</p>
-                                </div>
-                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava4-bg.webp"
-                                     alt="avatar 1" style="width: 45px; height: 100%;">
-                            </div>
+<!--                            <div class="d-flex flex-row justify-content-end">-->
+<!--                                <div>-->
+<!--                                    <p class="small p-2 me-3 mb-1 text-white rounded-3 bg-primary">Okay then see you on-->
+<!--                                        sunday!!-->
+<!--                                    </p>-->
+<!--                                    <p class="small me-3 mb-3 rounded-3 text-muted d-flex justify-content-end">00:15</p>-->
+<!--                                </div>-->
+<!--                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava4-bg.webp"-->
+<!--                                     alt="avatar 1" style="width: 45px; height: 100%;">-->
+<!--                            </div>-->
 
                         </div>
                         <div class="card-footer text-muted d-flex justify-content-start align-items-center p-3">
@@ -153,6 +142,11 @@
         const userName = getCookie("userName");
         const messageSendBtn = document.getElementById("messageSend");
         const messageInput = document.getElementById("messageInput");
+        const goListBtn = document.getElementById("goList");
+        const messageContainer = document.getElementById("cardBody");
+
+        let lastMessageId;
+        let lastAppendEl;
 
         console.log("roomId : " + roomId);
         console.log("userCookieId : " + userCookieId);
@@ -172,17 +166,47 @@
 
                 // 4. subscribe(path, callback)로 메시지를 받을 수 있다. callback 첫번째 파라미터의 body로 메시지의 내용이 들어온다.
                 client.subscribe('/subscribe/chat/room/' + roomId, function (chat) {
-                    console.log("subscribe chat : " + chat.body);
                     let content = JSON.parse(chat.body);
-                    //chatBox.append('<li>' + content.message + '(' + content.writer + ')</li>')
+                    let type = content.type;
+                    let message = content.message;
+                    let senderId = content.senderId;
+                    let senderName = content.senderName;
+                    let msgTime = content.time;
+                    msgTime = new Date(msgTime).toLocaleTimeString('ko-kr');
+
+                    if (content.type==='JOIN'){
+                        messageContainer.appendChild(makeJoinCard(senderName));
+                        return;
+                    }
+
+                    if (senderId===userCookieId){
+                        console.log("my msg");
+                        if(lastMessageId===userCookieId){
+                            makeUpdateMyMsgCard(message,msgTime, lastAppendEl);
+                        }else{
+                            lastAppendEl = messageContainer.appendChild(makeMyMsgCard(message, senderName, msgTime));
+                        }
+                    } else {
+                        console.log("other msg");
+                        if(lastMessageId===senderId){
+                            makeUpdateOtherMsgCard(message,msgTime, lastAppendEl);
+                        }else {
+
+                            lastAppendEl = messageContainer.appendChild(makeOtherMsgCard(message, senderName, msgTime));
+                        }
+
+                    }
+
+                    // 스크롤 아래로 내리기
+                    messageContainer.scrollTop = messageContainer.scrollHeight;
+                    lastMessageId = senderId;
                 });
                 showToast("채팅방에 입장하였습니다.", "info");
 
                 messageSendBtn.addEventListener("click", function () {
                     let message = messageInput.value;
                     if (message === "") {return;}
-                    //console.log(message);
-                    client.send('/publish/chat/message', {}, JSON.stringify({roomId: roomId, message: message, senderId: userCookieId, senderName: userName}));
+                    client.send('/publish/chat/message', {}, JSON.stringify({type:'MESSAGE', roomId: roomId, message: message, senderId: userCookieId, senderName: userName}));
                     messageInput.value = "";
                 });
 
@@ -191,8 +215,15 @@
                 showToast("error ocurred.", "error");
             });
 
+        }//.ws
 
-        }
+
+        // 목록으로 돌아가기
+        goListBtn.addEventListener("click", function () {
+            window.location.href = "/chatRooms";
+        });
+
+
     </script>
 </th:block>
 

@@ -2,6 +2,7 @@ package com.toypwebchat.toyp_webchat.webchat.model;
 
 import lombok.*;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import java.util.Date;
 
@@ -13,6 +14,7 @@ import java.util.Date;
 @Document(collection = "room")
 public class Room {
 
+    @MongoId
     private String roomId;
     private String roomName;
 

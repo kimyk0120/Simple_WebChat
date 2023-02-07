@@ -90,3 +90,87 @@ function getCookie(cookie_name) {
         }
     }
 }
+
+function makeJoinCard(message){
+    let htmlPElement = document.createElement("p");
+    htmlPElement.className = "small rounded-3 text-muted" ;
+    htmlPElement.innerText = message + " joined the room.";
+    return htmlPElement;
+
+}
+
+
+function makeMyMsgCard(message, senderName, msgTime){
+    let htmlDivElement1 = document.createElement("div");
+    htmlDivElement1.className = "d-flex flex-row justify-content-start";
+    let htmlDivElement2 = document.createElement("div");
+    htmlDivElement2.innerText = senderName;
+    let htmlDivElement3 = document.createElement("div");
+    htmlDivElement3.className = "update-msg-container"
+    let htmlPElement1 = document.createElement("p");
+    htmlPElement1.className = "small p-2 ms-3 mb-1 rounded-3";
+    htmlPElement1.style.backgroundColor = "#f5f6f7";
+    htmlPElement1.innerText = message;
+    let htmlPElement2 = document.createElement("p");
+    htmlPElement2.className = "small ms-3 mb-3 rounded-3 text-muted";
+    htmlPElement2.innerText = msgTime;
+    htmlDivElement3.appendChild(htmlPElement1);
+    htmlDivElement3.appendChild(htmlPElement2);
+    htmlDivElement1.appendChild(htmlDivElement2);
+    htmlDivElement1.appendChild(htmlDivElement3);
+    return htmlDivElement1;
+}
+
+
+function makeOtherMsgCard(message, senderName, msgTime){
+    let htmlDivElement1 = document.createElement("div");
+    htmlDivElement1.className = "d-flex flex-row justify-content-end mb-4 pt-1";
+    let htmlDivElement2 = document.createElement("div");
+    htmlDivElement2.className = "update-msg-container";
+    let htmlPElement1 = document.createElement("p");
+    htmlPElement1.className = "small p-2 me-3 mb-1 text-white rounded-3 bg-primary";
+    htmlPElement1.innerText = message;
+    let htmlPElement2 = document.createElement("p");
+    htmlPElement2.className = "small me-3 mb-3 rounded-3 text-muted d-flex justify-content-end";
+    htmlPElement2.innerText = msgTime;
+    htmlDivElement2.appendChild(htmlPElement1);
+    htmlDivElement2.appendChild(htmlPElement2);
+    let htmlDivElement3 = document.createElement("div");
+    htmlDivElement3.innerText = senderName;
+    htmlDivElement1.appendChild(htmlDivElement2);
+    htmlDivElement1.appendChild(htmlDivElement3);
+    return htmlDivElement1;
+}
+
+
+function makeUpdateMyMsgCard(message, msgTime, lastAppendEl){
+
+    let pEls = lastAppendEl.getElementsByTagName("p");
+    let updatetMsgContainer = lastAppendEl.getElementsByClassName("update-msg-container")[0];
+
+    //마지막 p 태그의 메세지 시간을 업데이트 함
+    pEls[pEls.length-1].innerText = msgTime;
+
+    // 마지막 p 태그의 앞에 메세지를 추가함
+    let htmlPElement = document.createElement("p");
+    htmlPElement.className = "small p-2 ms-3 mb-1 rounded-3";
+    htmlPElement.style.backgroundColor = "#f5f6f7";
+    htmlPElement.innerText = message;
+    updatetMsgContainer.insertBefore(htmlPElement, pEls[pEls.length-1]);
+}
+
+function makeUpdateOtherMsgCard(message, msgTime, lastAppendEl){
+    console.log(lastAppendEl);
+    let pEls = lastAppendEl.getElementsByTagName("p");
+    let updatetMsgContainer = lastAppendEl.getElementsByClassName("update-msg-container")[0];
+
+    //마지막 p 태그의 메세지 시간을 업데이트 함
+    pEls[pEls.length-1].innerText = msgTime;
+
+    // 마지막 p 태그의 앞에 메세지를 추가함
+    let htmlPElement = document.createElement("p");
+    htmlPElement.className = "small p-2 me-3 mb-1 text-white rounded-3 bg-primary";
+    htmlPElement.innerText = message;
+    updatetMsgContainer.insertBefore(htmlPElement, pEls[pEls.length-1]);
+
+}

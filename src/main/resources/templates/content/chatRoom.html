@@ -170,7 +170,7 @@
                     let msgTime = content.time;
                     msgTime = new Date(msgTime).toLocaleTimeString('ko-kr');
 
-                    if (type==='JOIN' || type==='LEAVE'){
+                    if (type==="JOIN" || type==="LEAVE"){
                         messageContainer.appendChild(makeJoinCard(senderName, type));
                         return;
                     }

@@ -21,6 +21,8 @@ KAFKA를 이용한 JAVA기반의 웹채팅 애플리케이션으로 다음 기�
 
 <img src="./screenshot/loginpage.png" style="width: 350px; height: auto;" alt="">
 
+<img src="./screenshot/chat1.png" style="width: 350px; height: auto;" alt="">
+
 This application uses the following tools:
 
 
@@ -75,20 +77,6 @@ This application uses the following tools:
   3. 서버는 메세지를 카프카로 프로듀스
   4. 서버에 listener를 통해 카프카로부터 메세지 수신
   5. 서버는 메세지를 클라이언트에게 소켓을 통해 전송
-
-
----
-
-### TODO
-
-* chatRoom 삭제 로직
-  - 방 접속 인원이 0명이면 삭제
-  - 방 접속 인원은 어떻게 관리할까?
-    - 웹브라우저를 나갈때 마다? : beforeunload 
-    - 페이지 이동 시 마다? : unload
-    - 웹소켓 연결을 끊을때 마다?
-    - 서버에서 주기적으로 체크?
-
 * chatRomm
   - chatRoom layout: chatRoom title, chatRoom 채팅창, chatRoom 채팅 입력창, chatRoom 나가기 버튼, chat Message layout
   - chatRoom 기능 구현
@@ -97,9 +85,12 @@ This application uses the following tools:
     - chatRoom 채팅 메시지 전송
     - chatRoom 채팅 메시지 수신
     - chatRoom 나가기
-    
+* chatRoom 삭제 로직 추가
 
- 
+---
+
+### TODO
+
 
 * Interceptor
   - 로그인 여부 확인

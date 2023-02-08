@@ -65,4 +65,20 @@ public class RoomService {
         roomRepository.save(room);
         return room;
     }
+
+    public Room leaveRoom(String roomId) {
+        Optional<Room> byId = roomRepository.findById(roomId);
+        Room room = byId.get();
+        int userCount = room.getUserCount() - 1;
+        if (userCount <= 0) {
+            deleteRoom(roomId);
+            return null;
+        }
+        room.setUserCount(userCount);
+        room.setUpdatedAt(new Date(System.currentTimeMillis()));
+        roomRepository.save(room);
+        return room;
+    }
+
+
 }//.class

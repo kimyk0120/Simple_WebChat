@@ -91,12 +91,11 @@ function getCookie(cookie_name) {
     }
 }
 
-function makeJoinCard(message){
+function makeJoinCard(senderName, type){
     let htmlPElement = document.createElement("p");
     htmlPElement.className = "small rounded-3 text-muted" ;
-    htmlPElement.innerText = message + " joined the room.";
+    htmlPElement.innerText = senderName + " " + type.toLowerCase() + "  the room.";
     return htmlPElement;
-
 }
 
 

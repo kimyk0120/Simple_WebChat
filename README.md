@@ -81,6 +81,14 @@ This application uses the following tools:
 
 ### TODO
 
+* chatRoom 삭제 로직
+  - 방 접속 인원이 0명이면 삭제
+  - 방 접속 인원은 어떻게 관리할까?
+    - 웹브라우저를 나갈때 마다? : beforeunload 
+    - 페이지 이동 시 마다? : unload
+    - 웹소켓 연결을 끊을때 마다?
+    - 서버에서 주기적으로 체크?
+
 * chatRomm
   - chatRoom layout: chatRoom title, chatRoom 채팅창, chatRoom 채팅 입력창, chatRoom 나가기 버튼, chat Message layout
   - chatRoom 기능 구현
@@ -91,12 +99,7 @@ This application uses the following tools:
     - chatRoom 나가기
     
 
-* chatRoom 삭제 로직
-  - 방 접속 인원이 0명이면 삭제
-  - 방 접속 인원은 어떻게 관리할까?
-    - 웹브라우저를 나갈때 마다? : beforeunload  
-    - 페이지 이동 시 마다? : unload
-    - 웹소켓 연결을 끊을때 마다? 
+ 
 
 * Interceptor
   - 로그인 여부 확인

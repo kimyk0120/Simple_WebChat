@@ -129,8 +129,8 @@
 </th:block>
 
 <th:block layout:fragment="addJslib">
-    <script src="/libs/sockjs-client-1.6.1/dist/sockjs.min.js"></script>
-    <script src="/libs/stomp-websocket-2.3.4/lib/stomp.min.js"></script>
+    <script src="/libs/sockjs-client-1.6.1/dist/sockjs.js"></script>
+    <script src="/libs/stomp-websocket-2.3.4/lib/stomp.js"></script>
 </th:block>
 
 <th:block layout:fragment="js">
@@ -174,8 +174,8 @@
                     let msgTime = content.time;
                     msgTime = new Date(msgTime).toLocaleTimeString('ko-kr');
 
-                    if (content.type==='JOIN'){
-                        messageContainer.appendChild(makeJoinCard(senderName));
+                    if (type==='JOIN' || type==='LEAVE'){
+                        messageContainer.appendChild(makeJoinCard(senderName, type));
                         return;
                     }
 
@@ -210,6 +210,10 @@
                     messageInput.value = "";
                 });
 
+                window.onbeforeunload = function () {
+                    client.send('/publish/chat/leave', {}, JSON.stringify({roomId: roomId, senderId: userCookieId, type: "LEAVE", senderName:userName}));
+                };
+
             }, function (error) {
                 console.log("STOMP error " + error);
                 showToast("error ocurred.", "error");
@@ -222,6 +226,8 @@
         goListBtn.addEventListener("click", function () {
             window.location.href = "/chatRooms";
         });
+
+
 
 
     </script>

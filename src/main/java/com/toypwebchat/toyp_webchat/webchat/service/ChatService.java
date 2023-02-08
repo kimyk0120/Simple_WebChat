@@ -21,18 +21,26 @@ public class ChatService {
 
     private final SimpMessagingTemplate template;
 
-    public ChatService(KafkaTemplate<String, ChatMessage> kafkaTemplate, SimpMessagingTemplate template) {
+    private final RoomService roomService;
+
+    public ChatService(KafkaTemplate<String, ChatMessage> kafkaTemplate, SimpMessagingTemplate template, RoomService roomService) {
         this.kafkaTemplate = kafkaTemplate;
         this.template = template;
+        this.roomService = roomService;
     }
 
     @KafkaListener(topics = "${kafka.topic.name}", groupId = "webchat")
     public void consume(ChatMessage message) {
-        log.info("ChatService Consumed message : " + message);
+        log.info("[ChatService Consumed message] : " + message);
         template.convertAndSend("/subscribe/chat/room/" + message.getRoomId(), message);
     }
 
     public void sendMessage(ChatMessage message) {
         this.kafkaTemplate.send(TOPIC_NAME, message);
+    }
+
+    public void leave(ChatMessage message) {
+        this.kafkaTemplate.send(TOPIC_NAME, message);
+        roomService.leaveRoom(message.getRoomId());
     }
 }

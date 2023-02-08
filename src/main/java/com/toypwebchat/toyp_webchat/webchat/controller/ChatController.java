@@ -24,6 +24,13 @@ public class ChatController {
         chatService.sendMessage(message);
     }
 
+    @MessageMapping("/chat/leave")
+    public void leave(ChatMessage message) {
+        log.info("MessageMapping /chat/leave");
+        message.setMessage(message.getSenderId() + "님이 퇴장하셨습니다.");
+        chatService.leave(message);
+    }
+
     @MessageMapping("/chat/message")
     public void message(ChatMessage message) {
         log.info("MessageMapping /chat/message");

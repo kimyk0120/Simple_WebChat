@@ -21,7 +21,7 @@ KAFKA를 이용한 JAVA기반의 웹채팅 애플리케이션으로 다음 기�
 
 <img src="./screenshot/loginpage.png" style="width: 350px; height: auto;" alt="">
 
-<img src="./screenshot/chat1.png" style="width: 350px; height: auto;" alt="">
+<img src="./screenshot/chat2.jpg" style="width: 350px; height: auto;" alt="">
 
 This application uses the following tools:
 

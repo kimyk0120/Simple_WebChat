@@ -13,7 +13,7 @@ import java.util.concurrent.ExecutionException;
 @Slf4j
 @RestController
 @RequestMapping(value = "/kafka")
-public class KafkaController {
+public class KafkaAdminController {
 
 
     @GetMapping(value = "/create-topic/{topicNm}")

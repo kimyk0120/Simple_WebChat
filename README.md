@@ -86,6 +86,8 @@ This application uses the following tools:
     - chatRoom 채팅 메시지 수신
     - chatRoom 나가기
 * chatRoom 삭제 로직 추가
+* Broker 변경 (KAFKA -> SimpMessagingTemplate)
+  - KafKa 데이터 적재용으로 변경
 
 ---
 

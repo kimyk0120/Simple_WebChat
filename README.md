@@ -4,6 +4,8 @@
 
 ## Introduction 
 
+* DEMO : http://152.67.208.39:8080/login
+
 ```
 KAFKA를 이용한 JAVA기반의 웹채팅 애플리케이션으로 다음 기능을 제공한다.
  - 다중 사용자가 채팅방에 접속하여 채팅을 주고 받을 수 있다.
@@ -89,18 +91,9 @@ This application uses the following tools:
 * Broker 변경 (KAFKA -> SimpMessagingTemplate)
   - KafKa 데이터 적재용으로 변경
 
+
 ---
 
-### TODO
-
-
-* Interceptor
-  - 로그인 여부 확인
-  - 로그인 여부에 따라 페이지 이동
-  - 로그인 여부에 따라 API 접근 제한
-  
-  
----
 
 ### Trouble Shooting
 

@@ -90,7 +90,7 @@ This application uses the following tools:
 * chatRoom 삭제 로직 추가
 * Broker 변경 (KAFKA -> SimpMessagingTemplate)
   - KafKa 데이터 적재용으로 변경
-
+* 서버 kafka system service 등록
 
 ---
 

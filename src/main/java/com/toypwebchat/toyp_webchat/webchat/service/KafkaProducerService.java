@@ -20,7 +20,7 @@ public class KafkaProducerService {
     }
 
     public void sendMessage(ChatMessage message) {
-        log.info("kafka send message : " +  message);
+        log.info(">>>>>>>> kafka send message : " +  message);
         this.kafkaTemplate.send("webchat-topic", message);
     }
 }

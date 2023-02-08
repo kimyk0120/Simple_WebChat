@@ -20,7 +20,7 @@ public class KafkaConsumerService {
 
     @KafkaListener(topics = "webchat-topic", groupId = "webchat")
     public void consume(ChatMessage message) throws Exception {
-        System.out.println("kafka consume receive message : " + message);
+        System.out.println("<<<<<<<< kafka consume receive message : " + message);
         messageRepository.save(message);
         //this.template.convertAndSend("/subscribe/chat/room/" + message.getRoomId(), message);
     }

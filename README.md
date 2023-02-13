@@ -5,12 +5,11 @@
 ---
 
 
-[Introduction](#Introduction)  
-[Done](#Done)  
-
-
-
-
+[1.Introduction](#Introduction)  
+[2.Done](#Done)  
+[3.Trouble Shooting](#trouble-shooting)  
+[4.Reference & TIPS](#reference--tips)  
+[5.Limitation & Future Work](#limitation--future-work)  
 
 
 ---
@@ -112,6 +111,7 @@ This application uses the following tools:
 
 
 ### Trouble Shooting
+<a name="trouble-shooting"></a>
 
 * error: invalid source release: 17
   - [PROJECT] build.gradle > sourceCompatibility = 11
@@ -130,6 +130,7 @@ This application uses the following tools:
 ---
 
 ### REFERENCE & TIPS
+<a name="reference--tips"></a>
 
 * fire wall CMD: iptables -I INPUT 1 -p tcp --dport 8080 -j ACCEPT
 * MDB : https://mdbootstrap.com/docs/standard/getting-started/installation/ 
@@ -144,6 +145,8 @@ This application uses the following tools:
 --- 
 
 ### Limitation & Future Work
+<a name="limitation--future-work"></a>
+
 * 다중 카프카 서버 구성 및 설정 (현재는 단일 서버 구성)
 * 개인 profile 사진 AI 생성 from Text or image 
 * React 적용 
